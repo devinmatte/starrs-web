@@ -1,0 +1,24 @@
+{
+  "name": "starrs-web",
+  "homepage": "https://github.com/ComputerScienceHouse/starrs-web",
+  "description": "Web interface for the STARRS network resource management solution.",
+  "main": "",
+  "authors": [
+    "Grant Cohoe"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tablesorter": "*",
+    "csh-material-bootstrap": "^1.0.0",
+    "font-awesome": "fontawesome#^4.6.3",
+    "selectize": "^0.12.3"
+  }
+}

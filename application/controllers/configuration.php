@@ -8,7 +8,7 @@ class Configuration extends ImpulseController {
 		$this->_setNavHeader("Management");
 		$this->_setSubHeader("Configuration");
 		$this->_addTrail("Configuration","/configuration/view");
-		$this->_addScript("/js/config.js");
+		$this->_addScript("/assets/js/config.js");
 		if(!$this->user->isAdmin()) {
 			$this->_exit(new Exception("Only admins can view configuration"));
 			return;

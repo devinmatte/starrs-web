@@ -2,67 +2,68 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title><?=$title;?></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-		<meta name="author" content="">
-
-		<!-- Le styles -->
-		<style type="text/css">
-			body {
-				padding-top: 60px;
-				padding-bottom: 40px;
-			}
-			.sidebar-nav {
-				padding: 9px 0;
-			}
-		</style>
-		<link href="/css/bootstrap.css" rel="stylesheet">
-		<link href="/css/docs.css" rel="stylesheet">
-		<link href="/css/impulse.css" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<link rel="shortcut icon" href="/ico/favicon.ico">
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ico/apple-touch-icon-144-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ico/apple-touch-icon-114-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ico/apple-touch-icon-72-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" href="/ico/apple-touch-icon-57-precomposed.png">
+		<title><?=$title;?></title>
+		
+		<link href="/bower_components/csh-material-bootstrap/dist/css/csh-material-bootstrap.css" rel="stylesheet">
+		<link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/bower_components/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
+		<link href="/assets/css/starrs.css" rel="stylesheet">
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/assets/favicon/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/assets/favicon/manifest.json">
+		<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#b0197e">
+		<link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+		<meta name="apple-mobile-web-app-title" content="STARRS">
+		<meta name="application-name" content="STARRS">
+		<meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+		<meta name="theme-color" content="#b0197e">
+	
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
 	</head>
 
 	<body>
 		<?=$navbar;?>
-		<div class="container-fluid">
-		<!--[if lt IE 9]>
-			<div class="alert">
-				WARNING! You are using Microsoft Internet Explorer which is not fully supported at this time and may cause unintended operation. Please use Google Chrome or Mozilla Firefox to ensure all features function as intended.
-			</div>
-		<![endif]-->
+		
+		<div class="container">
+			<!--[if lt IE 9]>
+				<div class="alert">
+					WARNING! You are using Microsoft Internet Explorer which is not fully supported at this time and may cause unintended operation. Please use Google Chrome or Mozilla Firefox to ensure all features function as intended.
+				</div>
+			<![endif]-->
 
 			<?=$breadcrumb;?>
-			<div class="row-fluid">
+			
+			<div class="row">
 				<?=$sidebar;?>
 				<?=$content;?>
 			</div>
-			<hr>
+		</div>
+		
+		<div class="container">
 			<div class="footer">
                 <p>
                 Maintainer: <a href="<?=$maint_url?>"><?=$maint?></a>
                 <br>
-                Version: <?=($version)?"<a href=\"https://github.com/cohoe/starrs-web/commit/$version\">$version</a>":"?"?></a>
+                Version: <?=($version)?"<a href=\"https://github.com/ComputerScienceHouse/starrs-web/commit/$version\">$version</a>":"?"?></a>
                 <br>
-				STARRS &copy; 2014 <a href="http://grantcohoe.com">Grant Cohoe</a>
+				STARRS &copy; <?php echo date("Y"); ?> <a href="http://grantcohoe.com">Grant Cohoe</a>
                 </p>
 			</div>
 		</div>
 
-		<script src="/js/jquery-1.7.2.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/jquery.tablesorter.min.js"></script>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/bower_components/tablesorter/jquery.tablesorter.min.js"></script>
+		<script src="/bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
 		<?=$scripts;?>
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-			<script src="/js/html5.js"></script>
-			<script src="/js/iefix.js"></script>
-		<![endif]-->
-
 	</body>
 </html>

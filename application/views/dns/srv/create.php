@@ -1,53 +1,41 @@
-<form class="form-horizontal" id="create-form">
-	<fieldset>
-		<div class="control-group error">
-			<label class="control-label">Alias: </label>
-			<div class="controls">
-				<input type="text" name="alias" />&nbsp;<span id="inuse" class="label label-important imp-hide">In use!</span>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label">Zone: </label>
-			<div class="controls">
-				<select name="zone">
-					<?php
-					foreach($zones as $zone) {
-						print "<option value=\"".htmlentities($zone->get_zone())."\">".htmlentities($zone->get_zone())."</option>";
-					}
-					?>
-				</select>
-			</div>
-		</div>
-		<div class="control-group error">
-			<label class="control-label">Priority: </label>
-			<div class="controls">
-				<input type="text" name="priority" />
-			</div>
-		</div>
-		<div class="control-group error">
-			<label class="control-label">Weight: </label>
-			<div class="controls">
-				<input type="text" name="weight" />
-			</div>
-		</div>
-		<div class="control-group error">
-			<label class="control-label">Port: </label>
-			<div class="controls">
-				<input type="text" name="port" />
-			</div>
-		</div>
-		<div class="control-group warning">
-			<label class="control-label">TTL: </label>
-			<div class="controls">
-				<input type="text" name="ttl"></input>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label">Owner: </label>
-			<div class="controls">
-				<input type="text" name="owner" value="<?=htmlentities($user->get_user_name());?>" <?=($user->isAdmin())?"":"readonly"?>></input>
-			</div>
-		</div>
-		<input type="hidden" name="address" value="<?=$address;?>" />
-	</fieldset>
+<form method="POST" id="create-form">
+	<input type="hidden" name="address" value="<?=$address;?>" />
+	<div class="form-group has-feedback">
+		<label class="control-label">Alias</label>
+		<input type="text" name="alias" class="form-control" />&nbsp;<span id="inuse" class="label label-important imp-hide">In use!</span>
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+	<div class="form-group">
+		<label class="control-label">Zone</label>
+		<select name="zone" class="form-control">
+			<?php
+			foreach($zones as $zone) {
+				print "<option value=\"".htmlentities($zone->get_zone())."\">".htmlentities($zone->get_zone())."</option>";
+			}
+			?>
+		</select>
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label">Priority</label>
+		<input type="text" name="priority" class="form-control" />
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label">Weight</label>
+		<input type="text" name="weight" class="form-control" />
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label">Port</label>
+		<input type="text" name="port" class="form-control" />
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+	<div class="form-group">
+		<label class="control-label">TTL</label>
+		<input type="text" name="ttl" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label class="control-label">Owner</label>
+		<input type="text" name="owner" value="<?=htmlentities($user->get_user_name());?>" <?=($user->isAdmin())?"":"readonly disabled"?> />
+	</div>
 </form>

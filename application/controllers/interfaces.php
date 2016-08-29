@@ -7,7 +7,7 @@ class Interfaces extends ImpulseController {
 		parent::__construct();
 		$this->_setNavHeader("Systems");
 		$this->_setSubHeader("Systems");
-		$this->_addScript("/js/systems.js");
+		$this->_addScript("/assets/js/systems.js");
 	}
 
 	public function view($systemName) {

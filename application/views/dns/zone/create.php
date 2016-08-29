@@ -1,16 +1,17 @@
-	<form method="POST" class="form-horizontal well span9" id="create-form">
-		<fieldset>
-			<legend>Create Zone</legend>
-			<div class="control-group error">
-				<label class="control-label">Zone: </label>
-				<div class="controls">
-					<input type="text" name="zone" />
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Create Zone</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="create-form">
+				<div class="form-group">
+					<label class="control-label">Zone</label>
+					<input type="text" class="form-control" name="zone" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Key: </label>
-				<div class="controls">
-					<select name="key">
+				<div class="form-group">
+					<label class="control-label">Key</label>
+					<select name="key" class="form-control">
 						<option selected></option>
 						<?
 						foreach($keys as $k) {
@@ -19,51 +20,40 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Forward: </label>
-				<div class="controls">
-					<select name="forward">
+				<div class="form-group">
+					<label class="control-label">Forward</label>
+					<select name="forward" class="form-control">
 						<option value='true'>Yes</option>
 						<option value='false'>No</option>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Shared: </label>
-				<div class="controls">
-					<select name="shared">
+				<div class="form-group">
+					<label class="control-label">Shared</label>
+					<select name="shared" class="form-control">
 						<option value='true'>Yes</option>
 						<option value='false'>No</option>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">DDNS: </label>
-				<div class="controls">
-					<select name="ddns">
+				<div class="form-group">
+					<label class="control-label">DDNS</label>
+					<select name="ddns" class="form-control">
 						<option value='false'>No</option>
 						<option value='true'>Yes</option>
 					</select>
 				</div>
-			</div>
-			<div class="control-group warning">	
-				<label class="control-label">Comment: </label>
-				<div class="controls">
-					<input type="text" name="comment" />
+				<div class="form-group">
+					<label class="control-label">Comment</label>
+					<input type="text" class="form-control" name="comment" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<label class="control-label">Owner: </label>
-				<div class="controls">
-					<input type="text" name="owner" <?=($user->isAdmin())?"":"readonly";?> value="<?=htmlentities($user->get_user_name());?>" />
+				<div class="form-group">
+					<label class="control-label">Owner</label>
+					<input type="text" class="form-control" name="owner" <?=($user->isAdmin())?"":"readonly disabled";?> value="<?=htmlentities($user->get_user_name());?>" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/dns/zone" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Create Zone" class="btn btn-primary" />
-					<a href="/dns/zone" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

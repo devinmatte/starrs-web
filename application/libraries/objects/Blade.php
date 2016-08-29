@@ -58,7 +58,7 @@ class Blade {
 
 	public function renderRow($rowNum) {
 		$ifs = $this->rowInts[$rowNum];
-		$html = "<div class=\"row-fluid\">";
+		$html = "<div class=\"row\">";
 		for($c=0; $c<$this->portGroups; $c++) {
 			$spanCount = floor(12 / $this->portGroups);
 			$html .= "<div class=\"span$spanCount\">";

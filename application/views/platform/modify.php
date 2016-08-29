@@ -1,16 +1,18 @@
-	<form method="POST" class="form-horizontal well span9" id="modify-form">
-		<fieldset>
-			<legend>Modify Platform</legend>
-			<div class="control-group">
-				<label class="control-label">Platform Name: </label>
-				<div class="controls">
-					<input type="text" name="platform_name" value="<?=$p->get_platform_name();?>" />
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Modify Platform</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="modify-form">
+				<div class="form-group has-feedback">
+					<label class="control-label">Platform Name</label>
+					<input type="text" class="form-control" name="platform_name" value="<?=$p->get_platform_name();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Architecture: </label>
-				<div class="controls">
-					<select name="architecture">
+				<div class="form-group has-feedback">
+					<label class="control-label">Architecture</label>
+					<select name="architecture" class="form-control">
 						<?
 						foreach($architectures as $arch) {
 							if($p->get_architecture() == $arch) {
@@ -21,31 +23,28 @@
 						}
 						?>
 					</select>
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Disk: </label>
-				<div class="controls">
-					<input type="text" name="disk" value="<?=$p->get_disk();?>" />
+				<div class="form-group has-feedback">
+					<label class="control-label">Disk</label>
+					<input type="text" class="form-control" name="disk" value="<?=$p->get_disk();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">CPU: </label>
-				<div class="controls">
-					<input type="text" name="cpu" value="<?=$p->get_cpu();?>" />
+				<div class="form-group has-feedback">
+					<label class="control-label">CPU</label>
+					<input type="text" class="form-control" name="cpu" value="<?=$p->get_cpu();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Memory (GB): </label>
-				<div class="controls">
-					<input type="text" name="memory" value="<?=$p->get_memory();?>" />
+				<div class="form-group has-feedback">
+					<label class="control-label">Memory (GB)</label>
+					<input type="text" class="form-control" name="memory" value="<?=$p->get_memory();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/platform/view/<?=rawurlencode($p->get_platform_name());?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Save" class="btn btn-primary" />
-					<a href="/platform/view/<?=rawurlencode($p->get_platform_name());?>" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

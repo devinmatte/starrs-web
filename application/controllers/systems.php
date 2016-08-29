@@ -6,7 +6,7 @@ class Systems extends ImpulseController {
 	public function __construct() {
 		parent::__construct();
 		$this->_setNavHeader("Systems");
-		$this->_addScript("/js/systems.js");
+		$this->_addScript("/assets/js/systems.js");
 	}
 
 	public function view($username=null) {
@@ -22,8 +22,8 @@ class Systems extends ImpulseController {
 		$this->_addTrail($this->user->getActiveUser(),"/systems/view/{$this->user->getActiveUser()}");
 		
 		// Actions
-		$this->_addAction('Create',"/system/create");
-		$this->_addAction('Quick Create',"/system/quickcreate");
+		$this->_addAction('Quick Create',"/system/quickcreate", "success");
+		$this->_addAction('Advanced Create',"/system/create", "warning");
 
 		// Generate content
 		$this->_addSidebarHeader("SYSTEMS");

@@ -16,7 +16,7 @@ class Domain extends ImpulseController {
 	}
 
 	public function view($host,$systemName) {
-		$this->_addScript("/js/power.js");
+		$this->_addScript("/assets/js/power.js");
 		// Decode
 		$host = rawurldecode($host);
 		$systemName = rawurldecode($systemName);

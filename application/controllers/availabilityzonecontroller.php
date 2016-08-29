@@ -8,7 +8,7 @@ class Availabilityzonecontroller extends ImpulseController {
 		$this->_setNavHeader("Systems");
 		$this->_setSubHeader("Availability Zones");
 		$this->_addTrail("Datacenters","/datacenters");
-		$this->_addScript("/js/systems.js");
+		$this->_addScript("/assets/js/systems.js");
 	}
 
 	public function index() {

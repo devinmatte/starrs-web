@@ -1,5 +1,5 @@
 <div class="alert alert-error imp-modalalert">
-	<h1>Fatal error(s):</h1>
+	<h4>Fatal error(s):</h4>
 	<?php
 	if(is_array($exception)) {
 		foreach($exception as $e) {

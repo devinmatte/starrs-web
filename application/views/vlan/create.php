@@ -1,29 +1,29 @@
-	<form method="POST" class="form-horizontal well span9" id="create-form">
-		<fieldset>
-			<legend>Create VLAN</legend>
-			<div class="control-group error">
-				<label class="control-label">Number: </label>
-				<div class="controls">
-					<input type="text" name="vlan" />
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Create VLAN</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="create-form">
+				<div class="form-group has-feedback">
+					<label class="control-label">Number</label>
+					<input type="text" class="form-control" name="vlan" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group error">
-				<label class="control-label">Name: </label>
-				<div class="controls">
-					<input type="text" name="name" />
+				<div class="form-group has-feedback">
+					<label class="control-label">Name</label>
+					<input type="text" class="form-control" name="name" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group warning">
-				<label class="control-label">Comment: </label>
-				<div class="controls">
-					<input type="text" name="comment" />
+				<div class="form-group">
+					<label class="control-label">Comment</label>
+					<input type="text" class="form-control" name="comment" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
-					<input type="submit" name="submit" value="Create VLAN" class="btn btn-primary" />
-					<a href="/network/vlans/view" class="btn">Cancel</a>
+				<div class="form-actions pull-right">
+					<a href="/network/vlans/view" class="btn btn-default">Cancel</a>
+					<input type="submit" name="submit" value="Create Interface" class="btn btn-primary" />
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

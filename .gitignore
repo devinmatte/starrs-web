@@ -1,6 +1,42 @@
+###############
+# Application
+###############
+
 application/config/database.php
 application/config/impulse.php
-img/logo.png
-git/*
-git
-version.txt
+
+###############
+# Linux
+###############
+
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+###############
+# CodeIgniter
+###############
+
+*/config/development
+*/logs/log-*.php
+!*/logs/index.html
+*/cache/*
+!*/cache/index.html
+!*/cache/.htaccess
+
+###############
+# Cloud9 IDE
+###############
+.c9
+
+###############
+# Bower
+###############
+bower_components

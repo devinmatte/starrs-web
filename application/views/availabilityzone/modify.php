@@ -1,10 +1,13 @@
-	<form method="POST" class="form-horizontal well span9" id="modify-form">
-		<fieldset>
-			<legend>Modify Availability Zone</legend>
-			<div class="control-group">
-				<label class="control-label">Datacenter Name: </label>
-				<div class="controls">
-					<select name="datacenter">
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Modify Availability Zone</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="create-form">
+				<div class="form-group">
+					<label class="control-label">Datacenter Name</label>
+					<select name="datacenter" class="form-control">
 					<?php
 					foreach($dcs as $dc) {
 						if($dc->get_datacenter() == $az->get_datacenter()) {
@@ -17,24 +20,20 @@
 					?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Zone: </label>
-				<div class="controls">
-					<input type="text" name="zone" value="<?=$az->get_zone();?>" />
+				<div class="form-group has-feedback">
+					<label class="control-label">Zone</label>
+					<input type="text" class="form-control" name="zone" value="<?=$az->get_zone();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group warning">
-				<label class="control-label">Comment: </label>
-				<div class="controls">
-					<input type="text" name="comment" value="<?=$az->get_comment();?>" />
+				<div class="form-group">
+					<label class="control-label">Comment</label>
+					<input type="text" class="form-control" name="comment" value="<?=$az->get_comment();?>" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/datacenter/view/<?=rawurlencode($az->get_datacenter());?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Save" class="btn btn-primary" />
-					<a href="/datacenter/view/<?=rawurlencode($az->get_datacenter());?>" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

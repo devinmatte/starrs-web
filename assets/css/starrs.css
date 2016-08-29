@@ -1,0 +1,264 @@
+body {
+    margin-top: 90px;
+    padding-bottom: 40px;
+}
+
+.required {
+    color: #e51c23;
+}
+
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+.imp-actionbtn {
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.imp-actionbtn a {
+    color: inherit;
+}
+
+#modal-error-body {
+    border-radius: 0;
+}
+
+.imp-modalalert {
+    margin-bottom: 0;
+}
+
+.imp-dnsheader {
+    border: 1px solid #DDD;
+    border-bottom: none;
+    padding: 8px;
+    background-color: #F9F9F9;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.imp-dnstable {
+    table-layout: fixed;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.imp-dnstable th {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.imp-dnstable td {
+    word-wrap: break-word;
+}
+
+.navbar-inner .container-fluid {
+    padding-right: 10px;
+}
+
+.imp-hide {
+    display: none;
+}
+
+.imp-switchport {
+    background-color: green;
+    text-align: center;
+    color: white;
+    border-radius: 4px;
+    padding-top: 5px;
+}
+
+.imp-up {
+    background-color: #468847;
+}
+
+.imp-down {
+    background-color: #333;
+}
+
+.imp-disabled {
+    background-color: #B94A48;
+}
+
+.imp-loading {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.imp-simplebutton {
+    margin-bottom: 1.5em;
+}
+
+.imp-simplebuttontable {
+    width: 100%;
+}
+
+.imp-simplebuttontest {
+    min-height: 3em !important;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.imp-simplebutton h2 {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.imp-sbtncontainer {
+    display: table !important;
+    min-height: 8em !important;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.imp-sbtn {
+    display: table-cell;
+    vertical-align: middle;
+    height: 8em;
+}
+
+.imp-logo {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+.footer {
+    margin-top: 30px;
+}
+
+.selectize-input.focus {
+    border-color: #B0197E;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(176, 25, 126, 0.6);
+}
+
+.nav-list> li> a {
+    padding: 3px 15px;
+}
+
+.nav-list> li> a,
+.nav-list .nav-header {
+    margin-left: -15px;
+    margin-right: -15px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.nav-list .nav-header {
+    display: block;
+    padding: 3px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #999999;
+    text-transform: uppercase;
+}
+
+.nav-list> li.nav-header> a:hover {
+    background: none;
+}
+
+/* Loader */
+
+#modal-loading {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+    z-index: 1040;
+    background: #000000;
+}
+
+.loader-container {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+}
+
+.loader-container > span {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.loader {
+    position: absolute;
+    top: calc(50% - 32px);
+    left: calc(50% - 32px);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    perspective: 800px;
+}
+
+.inner {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.inner.one {
+    left: 0%;
+    top: 0%;
+    animation: rotate-one 1s linear infinite;
+    border-bottom: 3px solid #EFEFFA;
+}
+
+.inner.two {
+    right: 0%;
+    top: 0%;
+    animation: rotate-two 1s linear infinite;
+    border-right: 3px solid #EFEFFA;
+}
+
+.inner.three {
+    right: 0%;
+    bottom: 0%;
+    animation: rotate-three 1s linear infinite;
+    border-top: 3px solid #EFEFFA;
+}
+
+@keyframes rotate-one {
+    0% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate-two {
+    0% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate-three {
+    0% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
+}

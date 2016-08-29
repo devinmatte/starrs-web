@@ -1,11 +1,17 @@
-	<form method="POST" class="form-horizontal well span9" id="modify-form">
-		<fieldset>
-			<legend>Modify Address</legend>
-			<?if($intAddr->get_dynamic() == 'f') {?>
-			<div class="control-group">
-				<label class="control-label">Range: </label>
-				<div class="controls">
-					<select name="range">
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Modify Address</h3>
+		</div>
+		<div class="panel-body">
+			<div class="alert alert-info" role="alert">
+				You only need to specify either an IP address or a range. If a range is selected, an IP address will be automatically entered for you. If you enter an IP address, its range will be selected automatically. The rest of the fields typically do not need to be altered.
+			</div>
+			<form method="POST" id="modify-form">
+				<?if($intAddr->get_dynamic() == 'f') {?>
+				<div class="form-group has-feedback">
+					<label class="control-label">Range</label>
+					<select name="range" class="form-control">
 						<?php
 						foreach($ranges as $range) {
 							if($range->get_name() == $intAddr->get_range()) {
@@ -17,22 +23,19 @@
 						}
 						?>
 					</select>
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group ">
-				<label class="control-label">Address: </label>
-				<div class="controls">
-					<input type="text" name="address" value="<?=htmlentities($intAddr->get_address());?>" />
+				<div class="form-group has-feedback">
+					<label class="control-label">Address</label>
+					<input type="text" class="form-control" name="address" value="<?=htmlentities($intAddr->get_address());?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<hr />
-			<?} else {?>
-					<input type="hidden" name="address" value="<?=htmlentities($intAddr->get_address());?>" />
-			<?}?>
-			<div class="control-group">
-				<label class="control-label">Interface: </label>
-				<div class="controls">
-					<select name="mac">
+				<?} else {?>
+				<input type="hidden" name="address" value="<?=htmlentities($intAddr->get_address());?>" />
+				<?}?>
+				<div class="form-group">
+					<label class="control-label">Interface</label>
+					<select name="mac" class="form-control">
 						<?php
 						foreach($ints as $int) {
 							if($int->get_mac() != $currentInt->get_mac()) {
@@ -44,21 +47,17 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Primary: </label>
-				<div class="controls">
-					<select name="isprimary">
+				<div class="form-group">
+					<label class="control-label">Primary</label>
+					<select name="isprimary" class="form-control">
 						<?=$intAddr->get_isprimary();?>
 						<option value='t' <?=($intAddr->get_isprimary()=='t')?"selected":null;?>>Yes</option>
 						<option value='f' <?=($intAddr->get_isprimary()=='f')?"selected":null;?>>No</option>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Config: </label>
-				<div class="controls">
-					<select name="config">
+				<div class="form-group">
+					<label class="control-label">Config</label>
+					<select name="config" class="form-control">
 						<?php
 						foreach($configs as $conf) {
 							if($intAddr->get_config() == $conf->get_config()) {
@@ -71,11 +70,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">DHCP Class: </label>
-				<div class="controls">
-					<select name="class">
+				<div class="form-group">
+					<label class="control-label">DHCP Class</label>
+					<select name="class" class="form-control">
 						<?php
 						foreach($classes as $class) {
 							if($class->get_class() == $intAddr->get_class()) {
@@ -88,24 +85,19 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">	
-				<label class="control-label">Renew Date: </label>
-				<div class="controls">
-					<input type="text" name="renew_date" value="<?=htmlentities($intAddr->get_renew_date());?>" <?($user->isAdmin())?"":"readonly";?> />
+				<div class="form-group">
+					<label class="control-label">Renew Date</label>
+					<input type="text" class="form-control" name="renew_date" value="<?=htmlentities($intAddr->get_renew_date());?>" <?($user->isAdmin())?"":"readonly disabled";?> />
 				</div>
-			</div>
-			<div class="control-group warning">	
-				<label class="control-label">Comment: </label>
-				<div class="controls">
-					<input type="text" name="comment" value="<?=htmlentities($intAddr->get_comment());?>" />
+				<div class="form-group">
+					<label class="control-label">Comment</label>
+					<input type="text" class="form-control" name="comment" value="<?=htmlentities($intAddr->get_comment());?>" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
-					<input type="submit" name="submit" value="Modify Address" class="btn btn-primary" />
-					<a href="/address/view/<?=rawurlencode($intAddr->get_address());?>" class="btn">Cancel</a>
+				<div class="form-actions pull-right">
+					<a href="/address/view/<?=rawurlencode($intAddr->get_address());?>" class="btn btn-default">Cancel</a>
+					<input type="submit" name="submit" value="Save" class="btn btn-primary" />
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

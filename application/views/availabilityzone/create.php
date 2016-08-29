@@ -1,29 +1,28 @@
-	<form method="POST" class="form-horizontal well span9" id="create-form">
-		<fieldset>
-			<legend>Create Availability Zone</legend>
-			<div class="control-group">
-				<label class="control-label">Datacenter Name: </label>
-				<div class="controls">
-					<input type="text" name="datacenter" value="<?=$dc->get_datacenter();?>" readonly />
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Create Availability Zone</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="create-form">
+				<div class="form-group">
+					<label class="control-label">Datacenter Name</label>
+					<input type="text" class="form-control" name="name" value="<?=$dc->get_datacenter();?>" readonly disabled />
 				</div>
-			</div>
-			<div class="control-group error">
-				<label class="control-label">Zone: </label>
-				<div class="controls">
-					<input type="text" name="zone" />
+				<div class="form-group has-feedback">
+					<label class="control-label">Zone</label>
+					<input type="text" class="form-control" name="zone" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group warning">
-				<label class="control-label">Comment: </label>
-				<div class="controls">
-					<input type="text" name="comment" />
+				<div class="form-group">
+					<label class="control-label">Comment</label>
+					<input type="text" class="form-control" name="comment" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/datacenter/view/<?=rawurlencode($dc->get_datacenter());?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Create Availability Zone" class="btn btn-primary" />
-					<a href="/datacenter/view/<?=rawurlencode($dc->get_datacenter());?>" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

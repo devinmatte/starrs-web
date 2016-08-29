@@ -1,10 +1,13 @@
-	<form method="POST" class="form-horizontal well span9" id="search-form">
-		<fieldset>
-			<legend>Search</legend>
-			<div class="control-group">
-				<label class="control-label">Datacenter: </label>
-				<div class="controls">
-					<select name="datacenter">
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Search</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="search-form">
+				<div class="form-group">
+					<label class="control-label">Datacenter</label>
+					<select name="datacenter" class="form-control">
 						<option></option>
 						<?php
 						foreach($dcs as $dc) {
@@ -13,11 +16,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Availability Zone: </label>
-				<div class="controls">
-					<select name="availabilityzone">
+				<div class="form-group">
+					<label class="control-label">Availability Zone</label>
+					<select name="availabilityzone" class="form-control">
 						<option></option>
 						<?php
 						foreach($azs as $az) {
@@ -26,29 +27,21 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Location: </label>
-				<div class="controls">
-					<input type="text" name="location" />
+				<div class="form-group">
+					<label class="control-label">Location</label>
+					<input type="text" class="form-control" name="location" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">System Name: </label>
-				<div class="controls">
-					<input type="text" name="systemName" />
+				<div class="form-group">
+					<label class="control-label">System Name</label>
+					<input type="text" class="form-control" name="systemName" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Asset: </label>
-				<div class="controls">
-					<input type="text" name="asset" />
+				<div class="form-group">
+					<label class="control-label">Asset</label>
+					<input type="text" class="form-control" name="asset" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Group: </label>
-				<div class="controls">
-					<select name="group">
+				<div class="form-group">
+					<label class="control-label">Group</label>
+					<select name="group" class="form-control">
 						<option></option>
 						<?php
 						foreach($gs as $g) {
@@ -57,11 +50,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Platform: </label>
-				<div class="controls">
-					<select name="platform_name">
+				<div class="form-group">
+					<label class="control-label">Platform</label>
+					<select name="platform_name" class="form-control">
 						<option></option>
 						<?php
 						foreach($platforms as $p) {
@@ -70,17 +61,13 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">MAC Address: </label>
-				<div class="controls">
-					<input type="text" name="mac" />
+				<div class="form-group">
+					<label class="control-label">MAC Address</label>
+					<input type="text" class="form-control" name="mac" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Subnet: </label>
-				<div class="controls">
-					<select name="subnet">
+				<div class="form-group">
+					<label class="control-label">Subnet</label>
+					<select name="subnet" class="form-control">
 						<option></option>
 						<?php
 						foreach($snets as $snet) {
@@ -89,17 +76,13 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">IP Address: </label>
-				<div class="controls">
-					<input type="text" name="ipaddress" />
+				<div class="form-group">
+					<label class="control-label">IP Address</label>
+					<input type="text" class="form-control" name="ipaddress" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Config: </label>
-				<div class="controls">
-					<select name="config">
+				<div class="form-group">
+					<label class="control-label">Config</label>
+					<select name="config" class="form-control">
 						<option></option>
 						<?php
 						foreach($configs as $c) {
@@ -108,11 +91,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Range: </label>
-				<div class="controls">
-					<select name="range">
+				<div class="form-group">
+					<label class="control-label">Range</label>
+					<select name="range" class="form-control">
 						<option></option>
 						<?php
 						foreach($rs as $r) {
@@ -121,17 +102,13 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">DNS Hostname: </label>
-				<div class="controls">
-					<input type="text" name="hostname" />
+				<div class="form-group">
+					<label class="control-label">DNS Hostname</label>
+					<input type="text" class="form-control" name="hostname" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">DNS Zone: </label>
-				<div class="controls">
-					<select name="zone">
+				<div class="form-group">
+					<label class="control-label">DNS Zone</label>
+					<select name="zone" class="form-control">
 						<option></option>
 						<?php
 						foreach($zs as $z) {
@@ -140,88 +117,120 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Owner: </label>
-				<div class="controls">
-					<input type="text" name="owner" />
+				<div class="form-group">
+					<label class="control-label">Owner</label>
+					<input type="text" class="form-control" name="owner" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Last Modifier: </label>
-				<div class="controls">
-					<input type="text" name="lastmodifier" />
+				<div class="form-group">
+					<label class="control-label">Last Modifier</label>
+					<input type="text" class="form-control" name="lastmodifier" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
 					<input type="submit" name="submit" value="Search" class="btn btn-primary" />
 				</div>
-			</div>
-		</fieldset>
-	</form>
-	<form method="POST" class="form-horizontal well span3" id="field-form">
-		<fieldset>
-			<legend>Fields</legend>
-			Select the fields that you wish to have displayed from the search results.
-			<div class="control-group">
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="datacenter" checked> Datacenter 
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="availability_zone" > Availablity Zone 
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="system_name" checked> System Name
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="location" > Location 
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="asset" > Asset 
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="group" > Group 
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="platform" > Platform 
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="mac" checked> MAC 
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="system_owner" checked> System Owner
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="system_last_modifier" > System Last Modifier
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="range" checked> Range
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="hostname" > Hostname
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="cname_alias" > CNAME
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="srv_alias" > SRV
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="zone" > DNS Zone
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="dns_owner" > DNS Owner
-        			</label>
-        			<label class="checkbox">
-            			<input name="fields" type="checkbox" value="dns_last_modifier" > DNS Last Modifier
-        			</label>
-				<br />
-					<ul class="unstyled inline">
+			</form>
+		</div>
+	</div>
+</div>
+<div class="col-md-3 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Fields</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="field-form">
+				<p>Select the fields that you wish to have displayed in the search results.</p>
+    			<div class="checkbox">
+					<label>
+	        			<input name="fields" type="checkbox" value="datacenter" checked> Datacenter 
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="availability_zone"> Availablity Zone 
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="system_name" checked> System Name
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+       	 				<input name="fields" type="checkbox" value="location"> Location 
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="asset"> Asset 
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="group"> Group 
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="platform"> Platform 
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="mac" checked> MAC 
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="system_owner" checked> System Owner
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="system_last_modifier"> System Last Modifier
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="range" checked> Range
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+    				<label>
+    					<input name="fields" type="checkbox" value="hostname"> Hostname
+    				</label>
+    			</label>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="cname_alias"> CNAME
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="srv_alias"> SRV
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="zone"> DNS Zone
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="dns_owner"> DNS Owner
+	    			</label>
+	    		</div>
+    			<div class="checkbox">
+					<label>
+        				<input name="fields" type="checkbox" value="dns_last_modifier"> DNS Last Modifier
+	    			</label>
+	    		</div>
+    			<ul class="list-unstyled">
 					<li><a id="f-all" href="#">Select all</a></li>
 					<li><a id="f-none" href="#">Select none</a></li>
 					<li><a id="f-def" href="#">Select default</a></li>
-					</ul>
-    			</div>
-		</fieldset>
-	</form>
+				</ul>
+			</form>
+		</div>
+	</div>
+</div>

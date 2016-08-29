@@ -1,10 +1,7 @@
-<form class="form-horizontal" id="modify-form">
-	<fieldset>
-		<div class="control-group">
-			<label class="control-label">Value: </label>
-			<div class="controls">
-				<input type="text" name="value" value="<?=$cfg->get_value();?>"></input>
-			</div>
-		</div>
-	</fieldset>
+<form method="POST" id="modify-form">
+	<div class="form-group has-feedback">
+		<label class="control-label">Value</label>
+		<input type="text" class="form-control" name="value" value="<?=$cfg->get_value();?>" />
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
 </form>

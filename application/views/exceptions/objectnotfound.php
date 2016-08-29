@@ -1,3 +1,3 @@
-<div class="span<?=isset($span)?$span:7;?> alert alert-info">
+<div class="col-md-<?=isset($span)?$span:6;?> alert alert-info">
 	No object(s) found!
 </div>

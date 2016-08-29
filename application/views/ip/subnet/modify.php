@@ -1,22 +1,24 @@
-	<form method="POST" class="form-horizontal well span9" id="modify-form">
-		<fieldset>
-			<legend>Modify Subnet</legend>
-			<div class="control-group">
-				<label class="control-label">Name: </label>
-				<div class="controls">
-					<input type="text" name="name" value="<?=$snet->get_name();?>" />
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Modify Subnet</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="modify-form">
+				<input type="hidden" name="datacenter" value="<?=$snet->get_datacenter();?>" />
+				<div class="form-group has-feedback">
+					<label class="control-label">Name</label>
+					<input type="text" class="form-control" name="name" value="<?=$snet->get_name();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">CIDR Subnet: </label>
-				<div class="controls">
-					<input type="text" name="subnet" value="<?=$snet->get_subnet();?>" />
+				<div class="form-group has-feedback">
+					<label class="control-label">CIDR Subnet</label>
+					<input type="text" class="form-control" name="subnet" value="<?=$snet->get_subnet();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Zone: </label>
-				<div class="controls">
-					<select name="zone">
+				<div class="form-group">
+					<label class="control-label">Zone</label>
+					<select name="zone" class="form-control">
 						<?php
 						foreach($zones as $z) {
 							if($z->get_zone() == $snet->get_zone()) {
@@ -29,11 +31,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Datacenter: </label>
-				<div class="controls">
-					<select name="datacenter">
+				<div class="form-group">
+					<label class="control-label">Datacenter</label>
+					<select name="datacenter" class="form-control">
 						<?php
 						foreach($dcs as $dc) {
 							if($dc->get_datacenter() == $snet->get_datacenter()) {
@@ -46,11 +46,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">VLAN: </label>
-				<div class="controls">
-					<select name="vlan">
+				<div class="form-group">
+					<label class="control-label">VLAN</label>
+					<select name="vlan" class="form-control">
 						<?php
 						foreach($vlans as $v) {
 							if($v->get_vlan() == $snet->get_vlan()) {
@@ -63,11 +61,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">	
-				<label class="control-label">DHCP Enable: </label>
-				<div class="controls">
-					<select name="dhcp_enable">
+				<div class="form-group">
+					<label class="control-label">DHCP Enable</label>
+					<select name="dhcp_enable" class="form-control">
 						<!--
 						<?
 						if($snet->get_dhcp_enable()=='t') {
@@ -83,33 +79,26 @@
 						<option value='f' <?=($snet->get_dhcp_enable()=='f')?"selected":'';?>>No</option>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">	
-				<label class="control-label">Autogen: </label>
-				<div class="controls">
-					<select name="autogen">
+				<div class="form-group">
+					<label class="control-label">Autogen</label>
+					<select name="autogen" class="form-control">
 						<option value=t <?=($snet->get_autogen()=='t')?"selected":'';?>>Yes</option>
 						<option value=f <?=($snet->get_autogen()=='f')?"selected":'';?>>No</option>
 					</select>
 				</div>
-			</div>
-			<div class="control-group warning">	
-				<label class="control-label">Comment: </label>
-				<div class="controls">
-					<input type="text" name="comment" value="<?=$snet->get_comment();?>" />
+				<div class="form-group">
+					<label class="control-label">Comment</label>
+					<input type="text" class="form-control" name="comment" value="<?=$snet->get_comment();?>" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<label class="control-label">Owner: </label>
-				<div class="controls">
-					<input type="text" name="owner" value="<?=$snet->get_owner();?>" <?=(!$isAdmin)?"readonly":'';?> />
+				<div class="form-group">
+					<label class="control-label">Owner</label>
+					<input type="text" class="form-control" name="owner" value="<?=$snet->get_owner();?>" <?=(!$isAdmin)?"readonly disabled":'';?> />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/ip/subnet/view/<?=rawurlencode($snet->get_subnet())?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Save" class="btn btn-primary" />
-					<a href="/ip/subnet/view/<?=rawurlencode($snet->get_subnet())?>" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

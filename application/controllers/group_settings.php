@@ -8,7 +8,7 @@ class Group_settings extends ImpulseController {
 		$this->_setNavHeader("Management");
 		$this->_setSubHeader("Groups");
 		$this->_addTrail("Groups","/groups");
-		$this->_addScript("/js/ip.js");
+		$this->_addScript("/assets/js/ip.js");
 	}
 
 	public function index() {

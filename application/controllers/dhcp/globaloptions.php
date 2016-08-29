@@ -9,7 +9,7 @@ class Globaloptions extends ImpulseController {
 		$this->_setSubHeader("Global Options");
 		$this->_addTrail("DHCP","/dhcp");
 		$this->_addTrail("Global Options","/dhcp/globaloptions/view");
-		$this->_addScript("/js/ip.js");
+		$this->_addScript("/assets/js/ip.js");
 	}
 
 	public function index() {

@@ -9,7 +9,7 @@ class Snmp extends ImpulseController {
 		$this->_setSubHeader("SNMP");
 		$this->_addTrail("Network","/network");
 		$this->_addTrail("SNMP","/network/snmp");
-		$this->_addScript("/js/snmp.js");
+		$this->_addScript("/assets/js/snmp.js");
 	}
 
 	public function index() {

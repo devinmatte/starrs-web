@@ -1,3 +1,3 @@
-<div class="row-fluid">
+<div class="row">
 	<?=$table;?>
 </div>

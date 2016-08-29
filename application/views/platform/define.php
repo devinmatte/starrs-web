@@ -1,18 +1,19 @@
-	<form method="POST" class="form-horizontal well span9" id="create-form">
-		<fieldset>
-			<legend>Define Platform</legend>
-			<div class="control-group error">
-				<label class="control-label">XML Definition: </label>
-				<div class="controls">
-					<!--<input type="field" name="definition" />-->
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Define Platform</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="modify-form">
+				<div class="form-group">
+					<label class="control-label">XML Definition</label>
 					<textarea style="width: 80%" rows="20" name="definition"></textarea>
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/platform/view/<?=rawurlencode($p->get_platform_name());?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Define" class="btn btn-primary" />
-					<a href="/platform/view/<?=rawurlencode($p->get_platform_name());?>" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

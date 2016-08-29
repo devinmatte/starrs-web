@@ -7,7 +7,7 @@ class Subnetcontroller extends ImpulseController {
 		parent::__construct();
 		$this->_setNavHeader("IP");
 		$this->_setSubHeader("Subnets");
-		$this->_addScript("/js/ip.js");
+		$this->_addScript("/assets/js/ip.js");
 		$this->_addTrail("IP","/ip");
 		$this->_addTrail("Subnets","/ip/subnets/");
 	}
@@ -108,7 +108,7 @@ class Subnetcontroller extends ImpulseController {
 			$viewData['zones'] = $this->api->dns->get->zonesByUser($this->user->getActiveUser());
 		}
 		catch(ObjectNotFoundException $e) {
-			$this->_exit(new Exception("No zones configured! Create at one or mroe DNS zones before attempting to create a subnet"));
+			$this->_exit(new Exception("No zones configured! Create at one or more DNS zones before attempting to create a subnet"));
 			return;
 		}
 		catch(Exception $e) { $this->_error($e); return; }

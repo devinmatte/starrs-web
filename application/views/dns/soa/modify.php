@@ -1,59 +1,47 @@
-	<form method="POST" class="form-horizontal well span9" id="modify-form">
-		<fieldset>
-			<legend>Modify SOA</legend>
-			<div class="control-group ">	
-				<label class="control-label">Nameserver: </label>
-				<div class="controls">
-					<input type="text" name="nameserver" value="<?=$soa->get_nameserver();?>" />
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Modify SOA</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="modify-form">
+				<div class="form-group">
+					<label class="control-label">Nameserver</label>
+					<input type="text" class="form-control" name="nameserver" value="<?=$soa->get_nameserver();?>" />
 				</div>
-			</div>
-			<div class="control-group ">	
-				<label class="control-label">TTL: </label>
-				<div class="controls">
-					<input type="text" name="ttl" value="<?=$soa->get_ttl();?>" />
+				<div class="form-group">
+					<label class="control-label">TTL</label>
+					<input type="text" class="form-control" name="ttl" value="<?=$soa->get_ttl();?>" />
 				</div>
-			</div>
-			<div class="control-group ">	
-				<label class="control-label">Responsible Person: </label>
-				<div class="controls">
-					<input type="text" name="contact" value="<?=$soa->get_contact();?>" />
+				<div class="form-group">
+					<label class="control-label">Responsible Person</label>
+					<input type="text" class="form-control" name="contact" value="<?=$soa->get_contact();?>" />
 				</div>
-			</div>
-			<div class="control-group ">	
-				<label class="control-label">Serial: </label>
-				<div class="controls">
-					<input type="text" name="serial" value="<?=$soa->get_serial();?>" />
+				<div class="form-group">
+					<label class="control-label">Serial</label>
+					<input type="text" class="form-control" name="serial" value="<?=$soa->get_serial();?>" />
 				</div>
-			</div>
-			<div class="control-group ">	
-				<label class="control-label">Refresh: </label>
-				<div class="controls">
-					<input type="text" name="refresh" value="<?=$soa->get_refresh();?>" />
+				<div class="form-group">
+					<label class="control-label">Refresh</label>
+					<input type="text" class="form-control" name="refresh" value="<?=$soa->get_refresh();?>" />
 				</div>
-			</div>
-			<div class="control-group ">	
-				<label class="control-label">Retry: </label>
-				<div class="controls">
-					<input type="text" name="retry" value="<?=$soa->get_retry();?>" />
+				<div class="form-group">
+					<label class="control-label">Retry</label>
+					<input type="text" class="form-control" name="retry" value="<?=$soa->get_retry();?>" />
 				</div>
-			</div>
-			<div class="control-group ">	
-				<label class="control-label">Expire: </label>
-				<div class="controls">
-					<input type="text" name="expire" value="<?=$soa->get_expire();?>" />
+				<div class="form-group">
+					<label class="control-label">Expire</label>
+					<input type="text" class="form-control" name="expire" value="<?=$soa->get_expire();?>" />
 				</div>
-			</div>
-			<div class="control-group ">	
-				<label class="control-label">Minimum: </label>
-				<div class="controls">
-					<input type="text" name="minimum" value="<?=$soa->get_minimum();?>" />
+				<div class="form-group">
+					<label class="control-label">Minimum</label>
+					<input type="text" class="form-control" name="minimum" value="<?=$soa->get_minimum();?>" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/dns/soa/view/<?=rawurlencode($soa->get_zone());?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Save" class="btn btn-primary" />
-					<a href="/dns/soa/view/<?=rawurlencode($soa->get_zone());?>" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

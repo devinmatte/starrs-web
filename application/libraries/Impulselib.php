@@ -504,7 +504,7 @@ class Impulselib {
 	}
 
 	public function getViewMode() {
-		return $this->CI->input->cookie('impulse_uimode',TRUE);
+		return $this->CI->input->cookie('starrs_uimode',TRUE);
 	}
 }
 /* End of file Impulselib.php */

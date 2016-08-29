@@ -1,16 +1,18 @@
-	<form method="POST" class="form-horizontal well span9" id="modify-form">
-		<fieldset>
-			<legend>Modify System</legend>
-			<div class="control-group">
-				<label class="control-label">System Name: </label>
-				<div class="controls">
-					<input type="text" name="systemName" value="<?=$sys->get_system_name();?>"/>
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Modify System</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="modify-form">
+				<div class="form-group has-feedback">
+					<label class="control-label">System Name</label>
+					<input type="text" class="form-control" name="systemName" value="<?=$sys->get_system_name();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Type: </label>
-				<div class="controls">
-					<select name="type">
+				<div class="form-group has-feedback">
+					<label class="control-label">Type</label>
+					<select name="type" class="form-control">
 						<?php
 						foreach($sysTypes as $sysType) {
 							if($sysType->get_type() == $sys->get_type()) {
@@ -22,12 +24,11 @@
 						}
 						?>
 					</select>
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">	
-				<label class="control-label">Operating System: </label>
-				<div class="controls">
-					<select name="osName">
+				<div class="form-group has-feedback">
+					<label class="control-label">Operating System</label>
+					<select name="osName" class="form-control">
 						<?php
 						foreach($operatingSystems as $os) {
 							if($os == $sys->get_os_name()) {
@@ -39,30 +40,23 @@
 						}
 						?>
 					</select>
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group warning">	
-				<label class="control-label">Comment: </label>
-				<div class="controls">
-					<input type="text" name="comment" value="<?=htmlentities($sys->get_comment());?>" />
+				<div class="form-group">
+					<label class="control-label">Comment</label>
+					<input type="text" class="form-control" name="comment" value="<?=htmlentities($sys->get_comment());?>" />
 				</div>
-			</div>
-			<div class="control-group warning">	
-				<label class="control-label">Location: </label>
-				<div class="controls">
-					<input type="text" name="location" value="<?=htmlentities($sys->get_location());?>" />
+				<div class="form-group">
+					<label class="control-label">Location</label>
+					<input type="text" class="form-control" name="location" value="<?=htmlentities($sys->get_location());?>" />
 				</div>
-			</div>
-			<div class="control-group warning">	
-				<label class="control-label">Asset: </label>
-				<div class="controls">
-					<input type="text" name="asset" value="<?=htmlentities($sys->get_asset());?>" />
+				<div class="form-group">
+					<label class="control-label">Asset</label>
+					<input type="text" class="form-control" name="asset" value="<?=htmlentities($sys->get_asset());?>" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<label class="control-label">Platform: </label>
-				<div class="controls">
-					<select name="platform">
+				<div class="form-group">
+					<label class="control-label">Platform</label>
+					<select name="platform" class="form-control">
 						<?
 						foreach($platforms as $p) {
 							if($p->get_platform_name() == $sys->get_platform()) {
@@ -75,11 +69,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">	
-				<label class="control-label">Datacenter: </label>
-				<div class="controls">
-					<select name="datacenter">
+				<div class="form-group">
+					<label class="control-label">Datacenter</label>
+					<select name="datacenter" class="form-control">
 						<?
 						foreach($dcs as $dc) {
 							if($dc->get_datacenter() == $sys->get_datacenter()) {
@@ -92,17 +84,17 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">	
-				<label class="control-label">Owner: </label>
-				<div class="controls">
-					<input type="text" name="owner" <?=($isAdmin)?"":"readonly";?> value="<?=htmlentities($sys->get_owner());?>" />
+				<div class="form-group">
+					<label class="control-label">Owner</label>
+					<input type="text" class="form-control" name="owner" <?=($isAdmin)?"":"readonly disabled";?> value="<?=htmlentities($sys->get_owner());?>" />
+                    <?if($user->isAdmin()) {?>
+                    <input type="hidden" disabled=true name="username" value="<?=$user->get_user_name();?>" />
+					<a href="#" class="btn" id="me-button">Me</a>
+                    <?}?>
 				</div>
-			</div>
-			<div class="control-group warning">	
-				<label class="control-label">Group: </label>
-				<div class="controls">
-					<select name="group">
+				<div class="form-group">
+					<label class="control-label">Group</label>
+					<select name="group" class="form-control">
 						<option></option>
 						<?
 						foreach($groups as $g) {
@@ -116,12 +108,11 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/system/view/<?=rawurlencode($sys->get_system_name());?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Save" class="btn btn-primary" />
-					<a href="/system/view/<?=rawurlencode($sys->get_system_name());?>" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

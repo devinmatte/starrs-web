@@ -8,7 +8,7 @@ class Range extends ImpulseController {
 		$this->_setNavHeader("IP");
 		$this->_setSubHeader("Ranges");
 		$this->_addTrail("IP","/ip");
-		$this->_addScript("/js/ip.js");
+		$this->_addScript("/assets/js/ip.js");
 	}
 
 	public function index() {

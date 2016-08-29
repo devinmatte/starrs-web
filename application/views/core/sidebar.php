@@ -1,11 +1,13 @@
-<div class="span3">        
-	<div class="well sidebar-nav">
-		<ul class="nav nav-list">
+<div class="col-md-3 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-body">	
+			<ul class="nav nav-list">
 			<?php
-			foreach($items as $item) {
-				echo "<li><a href=\"{$item['link']}\">".htmlentities($item['text'])."</a></li>";
-			}
+				foreach($items as $item) {
+					echo "<li><a href=\"{$item['link']}\">".htmlentities($item['text'])."</a></li>";
+				}
 			?>
-		</ul>
-	 </div><!--/.well -->
-</div><!--/.span -->
+			</ul>
+		</div>
+	</div>
+</div>

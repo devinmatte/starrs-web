@@ -1,30 +1,21 @@
-<form class="form-horizontal" id="create-form">
-	<fieldset>
-		<div class="control-group warning">
-			<label class="control-label">Hostname</label>
-			<div class="controls">
-				<input type="text" name="hostname" />&nbsp;<span id="inuse" class="label label-important imp-hide">In use!</span>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label">Zone</label>
-			<div class="controls">
-				<select name="zone">
-					<option><?=$zone;?></option>
-				</select>
-			</div>
-		</div>
-		<div class="control-group error">
-			<label class="control-label">Text</label>
-			<div class="controls">
-				<input type="text" name="text" />
-			</div>
-		</div>
-		<div class="control-group warning">
-			<label class="control-label">TTL</label>
-			<div class="controls">
-				<input type="text" name="ttl" />
-			</div>
-		</div>
-	</fieldset>
+<form method="POST" id="create-form">
+	<div class="form-group">
+		<label class="control-label">Hostname</label>
+		<input type="text" class="form-control" name="hostname" />&nbsp;<span id="inuse" class="label label-important imp-hide">In use!</span>
+	</div>
+	<div class="form-group">
+		<label class="control-label">Zone</label>
+		<select name="zone">
+			<option><?=$zone;?></option>
+		</select>
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label">Text</label>
+		<input type="text" class="form-control" name="text" />
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+	<div class="form-group">
+		<label class="control-label">TTL</label>
+		<input type="text" class="form-control" name="ttl" />
+	</div>
 </form>

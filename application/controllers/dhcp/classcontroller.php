@@ -9,7 +9,7 @@ class Classcontroller extends ImpulseController {
 		$this->_setSubHeader("Classes");
 		$this->_addTrail("DHCP","/dhcp");
 		$this->_addTrail("Classes","/dhcp/classes/view/");
-		$this->_addScript("/js/ip.js");
+		$this->_addScript("/assets/js/ip.js");
 	}
 
 	public function index() {

@@ -1,16 +1,10 @@
-	<form method="POST" class="form-horizontal" id="create-form">
-		<fieldset>
-			<div class="control-group warning">
-				<label class="control-label">Read-Only Community: </label>
-				<div class="controls">
-					<input type="text" name="ro" />
-				</div>
-			</div>
-			<div class="control-group warning">
-				<label class="control-label">Read-Write Community: </label>
-				<div class="controls">
-					<input type="text" name="rw" />
-				</div>
-			</div>
-		</fieldset>
-	</form>
+<form method="POST" id="create-form">
+	<div class="form-group">
+		<label class="control-label">Read-Only Community</label>
+		<input type="text" class="form-control" name="ro" />
+	</div>
+	<div class="form-group">
+		<label class="control-label">Read-Write Community</label>
+		<input type="text" class="form-control" name="rw" />
+	</div>
+</form>

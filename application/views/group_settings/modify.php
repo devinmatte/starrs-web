@@ -1,61 +1,54 @@
-	<form method="POST" class="form-horizontal well span9" id="modify-form">
-		<fieldset>
-			<legend>Modify Group Provider Settings</legend>
-			<div class="control-group">
-				<label class="control-label">Group Name: </label>
-				<div class="controls">
-					<input type="text" name="group" value="<?=$g->get_group();?>" />
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Modify Group Provider Settings</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="create-form">
+				<div class="form-group has-feedback">
+					<label class="control-label">Group Name</label>
+					<input type="text" class="form-control" name="group" value="<?=$g->get_group();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">User Privilege: </label>
-				<div class="controls">
-					<select name="privilege">
+				<div class="form-group has-feedback">
+					<label class="control-label">User Privilege</label>
+					<select name="privilege" class="form-control">
 						<option <?=($gset->get_privilege() == 'USER')?"selected":"";?> >USER</option>
 						<option <?=($gset->get_privilege() == 'ADMIN')?"selected":"";?> >ADMIN</option>
 						<option <?=($gset->get_privilege() == 'PROGRAM')?"selected":"";?> >PROGRAM</option>
 					</select>
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Provider: </label>
-				<div class="controls">
-					<select name="provider">
+				<div class="form-group has-feedback">
+					<label class="control-label">Provider</label>
+					<select name="provider" class="form-control">
 						<option <?=($gset->get_provider() == 'vcloud')?"selected":"";?> >vcloud</option>
 						<option <?=($gset->get_provider() == 'ldap')?"selected":"";?> >ldap</option>
 						<option <?=($gset->get_provider() == 'local')?"selected":"";?> >local</option>
 					</select>
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Hostname: </label>
-				<div class="controls">
-					<input type="text" name="hostname" value="<?=$gset->get_hostname();?>" />
+				<div class="form-group">
+					<label class="control-label">Hostname</label>
+					<input type="text" class="form-control" name="hostname" value="<?=$gset->get_hostname();?>" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">ID: </label>
-				<div class="controls">
-					<input type="text" name="id" value="<?=$gset->get_id();?>" />
+				<div class="form-group">
+					<label class="control-label">ID</label>
+					<input type="text" class="form-control" name="id" value="<?=$gset->get_id();?>" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Username: </label>
-				<div class="controls">
-					<input type="text" name="username" value="<?=$gset->get_username();?>" />
+				<div class="form-group">
+					<label class="control-label">Username</label>
+					<input type="text" class="form-control" name="username" value="<?=$gset->get_username();?>" />
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Password: </label>
-				<div class="controls">
-					<input type="password" name="password" value="<?=$gset->get_password();?>" />
+				<div class="form-group">
+					<label class="control-label">Password</label>
+					<input type="password" class="form-control" name="password" value="<?=$gset->get_password();?>" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
-					<input type="submit" name="submit" value="Modify Group" class="btn btn-primary" />
-					<a href="/group/view/<?=rawurlencode($g->get_group());?>" class="btn">Cancel</a>
+				<div class="form-actions pull-right">
+					<a href="/group/view/<?=rawurlencode($g->get_group());?>" class="btn btn-default">Cancel</a>
+					<input type="submit" name="submit" value="Save" class="btn btn-primary" />
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

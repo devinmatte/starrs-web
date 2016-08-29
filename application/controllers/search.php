@@ -7,7 +7,7 @@ class Search extends ImpulseController {
 		parent::__construct();
 		$this->_setNavHeader("Search");
 		$this->_addTrail("Search","/search");
-		$this->_addScript("/js/search.js");
+		$this->_addScript("/assets/js/search.js");
 	}
 
 	public function index() {

@@ -1,46 +1,37 @@
-<form class="form-horizontal" id="create-form">
-	<fieldset>
-		<div class="control-group">
-			<label class="control-label">Hostname: </label>
-			<div class="controls">
-				<select name="hostname">
-					<?php
-					foreach($aRecs as $aRec) {
-						print "<option value=\"".htmlentities($aRec->get_hostname())."\">".htmlentities($aRec->get_hostname())."</option>";
-					}
-					?>
-				</select>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label">Zone: </label>
-			<div class="controls">
-				<select name="zone">
-					<?php
-					foreach($zones as $zone) {
-						print "<option value=\"".htmlentities($zone->get_zone())."\">".htmlentities($zone->get_zone())."</option>";
-					}
-					?>
-				</select>
-			</div>
-		</div>
-		<div class="control-group error">
-			<label class="control-label">Text: </label>
-			<div class="controls">
-				<input type="text" name="text"></input>
-			</div>
-		</div>
-		<div class="control-group warning">
-			<label class="control-label">TTL: </label>
-			<div class="controls">
-				<input type="text" name="ttl"></input>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label">Owner: </label>
-			<div class="controls">
-				<input type="text" name="owner" value="<?=htmlentities($user->get_user_name());?>" <?=($user->isAdmin())?"":"readonly"?>></input>
-			</div>
-		</div>
-	</fieldset>
+<form method="POST" id="create-form">
+	<div class="form-group has-feedback">
+		<label class="control-label">Hostname</label>
+		<select name="hostname" class="form-control">
+			<?php
+			foreach($aRecs as $aRec) {
+				print "<option value=\"".htmlentities($aRec->get_hostname())."\">".htmlentities($aRec->get_hostname())."</option>";
+			}
+			?>
+		</select>
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label">Zone</label>
+		<select name="zone" class="form-control">
+			<?php
+			foreach($zones as $zone) {
+				print "<option value=\"".htmlentities($zone->get_zone())."\">".htmlentities($zone->get_zone())."</option>";
+			}
+			?>
+		</select>
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label">Text</label>
+		<input type="text" class="form-control" name="text" />
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+	<div class="form-group">
+		<label class="control-label">TTL</label>
+		<input type="text" class="form-control" name="ttl" />
+	</div>
+	<div class="form-group">
+		<label class="control-label">Owner</label>
+		<input type="text" class="form-control" name="owner" value="<?=htmlentities($user->get_user_name());?>" <?=($user->isAdmin())?"":"readonly disabled"?> />
+	</div>
 </form>

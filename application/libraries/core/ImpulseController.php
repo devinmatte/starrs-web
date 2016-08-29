@@ -40,13 +40,13 @@ class ImpulseController extends CI_Controller {
 			$this->impulselib->get_username(),
 			$this->impulselib->get_name(),
 			$this->api->get->current_user_level(),
-			$this->input->cookie('impulse_viewUser',TRUE)
+			$this->input->cookie('starrs_viewUser',TRUE)
 		);
 
 		// Base JS
-		$this->_addScript('/js/impulse.js');
-		$this->_addScript('/js/table.js');
-		$this->_addScript('/js/modal.js');
+		$this->_addScript('/assets/js/starrs.js');
+		$this->_addScript('/assets/js/table.js');
+		$this->_addScript('/assets/js/modal.js');
 
 		// Switchport
 		$this->ifState['up'] = "<span class=\"label label-success\">Up</span>";
@@ -75,9 +75,9 @@ class ImpulseController extends CI_Controller {
 	protected function _render($content=null) {
 		
 		// Page title
-		$title = "STARRS: ";
+		$title = "STARRS";
 		foreach($this->uri->segment_array() as $seg) {
-			$title .= ucfirst(rawurldecode($seg))."/";
+			$title .= " - ".ucfirst(rawurldecode($seg));
 		}
 	
 		// Basic information about the user should be displayed
@@ -109,13 +109,16 @@ class ImpulseController extends CI_Controller {
 
 		// Sidebar
 		if($this->sidebarBlank) {
-			$sidebar = "<div class=\"span3 offset3\"></div>";
+			$sidebar = "<div class=\"col-md-3 col-md-offset-3\"></div>";
 		} else {
 			$sidebar = $this->load->view('core/sidebarblank',array('sideContent'=>$this->sidebarItems),true);
 		}
 
 		// Content
-		$content.= $this->_renderActions();
+		if ($this->actions) {
+			$data['actions'] = $this->actions;
+			$content .= $this->load->view('core/actions', $data, true);
+		}
 
 		// Info
 		$content .= $this->load->view('core/modalinfo',null,true);
@@ -128,6 +131,11 @@ class ImpulseController extends CI_Controller {
 
 		// Create 
 		$content .= $this->load->view('core/modalcreate',null,true);
+		
+		// Impersonate
+		if($this->user->isadmin()) {
+			$content .= $this->load->view('core/modalimpersonate', $userData, true);
+		}
 
 		# This used to be core/modalselect but symlinks are dumb
 		$content .= $this->load->view('dns/modalcreate',null,true);
@@ -144,19 +152,26 @@ class ImpulseController extends CI_Controller {
 		}
 
 		// Version
-		$version = read_file('version.txt');
+		$rev = exec('git rev-parse --short HEAD');
+		if (file_exists('version.txt')) {
+		    $version = read_file('version.txt');
+		} elseif (!strpos($rev, 'fatal')) {
+		    $version = $rev;
+		} else {
+			$version = false;
+		}
 
         $maint = $this->api->get->site_configuration('MAINTAINER');
         if(!$maint) {
-            $maint = "Grant Cohoe";
+            $maint = "Computer Science House";
         }
 
         $maint_url = $this->api->get->site_configuration('MAINTAINER_URL');
         if(!$maint_url) {
-            $maint_url = "mailto:grant@grantcohoe.com?subject=STARRS@{$this->api->get->site_configuration('WEB_URL')}";
+            $maint_url = "https://github.com/ComputerScienceHouse/starrs-web/issues";
         }
 
-                // Send the data to the browser		
+        // Send the data to the browser		
 		$finalOut = $this->load->view('core/main',array('title'=>$title,'navbar'=>$navbar,'breadcrumb'=>$breadcrumb,'sidebar'=>$sidebar,'content'=>$content,'scripts'=>$scripts,'version'=>$version,'maint_url'=>$maint_url,'maint'=>$maint),true);
 
 		$this->output->set_output($finalOut);
@@ -190,17 +205,6 @@ class ImpulseController extends CI_Controller {
 		$this->trail[$name] = $link;
 	}
 
-	protected function _renderActions() {
-		if($this->actions) {
-			$actionCode = "<div class=\"span2 well pull-right\">";
-			foreach($this->actions as $action) {
-				$actionCode .= $action;
-			}
-			$actionCode .= "</div>";
-			return $actionCode;
-		}
-	}
-
 	protected function _addSidebarItem($text, $link, $icon=null, $active=null) {
 		if($active) {
 			$pre = "<li class=\"active\">";
@@ -208,7 +212,7 @@ class ImpulseController extends CI_Controller {
 			$pre = "<li>";
 		}
 		if($icon) {
-			$this->sidebarItems .= "$pre<a href=\"$link\"><i class=\"icon-$icon icon-black\"></i> ".htmlentities($text)."</a></li>";
+			$this->sidebarItems .= "$pre<a href=\"$link\"><i class=\"glyphicon glyphicon-$icon\"></i> ".htmlentities($text)."</a></li>";
 		}
 		else {
 			$this->sidebarItems .= "$pre<a href=\"$link\">".htmlentities($text)."</a></li>";
@@ -288,10 +292,10 @@ class ImpulseController extends CI_Controller {
 		$rowCounter = 0;
 		foreach($this->contentList[$cols] as $view) {
 			if($rowCounter == 0) {
-				$content .= "<div class=\"row-fluid\">";
+				$content .= "<div class=\"row\">";
 			}
 			elseif($rowCounter % $cols == 0) {
-				$content .= "</div><div class=\"row-fluid\">";
+				$content .= "</div><div class=\"row\">";
 			}
 			$content .= $view;
 			$rowCounter++;
@@ -365,11 +369,11 @@ class ImpulseController extends CI_Controller {
 
 			// Table
 			$html .= "<tr><td>".htmlentities($opt->get_option())."</td><td>".htmlentities($opt->get_value())."</td><td>";
-			$html .= "<a href=\"$detLink\"><button class=\"btn btn-mini btn-info\">Detail</button></a>";
+			$html .= "<a href=\"$detLink\"><button class=\"btn btn-sm btn-info\">Detail</button></a>";
 			$html .= "<span> </span>";
-			$html .= "<a href=\"$modLink\"><button class=\"btn btn-mini btn-warning\">Modify</button></a>";
+			$html .= "<a href=\"$modLink\"><button class=\"btn btn-sm btn-warning\">Modify</button></a>";
 			$html .= "<span> </span>";
-			$html .= "<a href=\"$remLink\"><button class=\"btn btn-mini btn-danger\">Remove</button></a>";
+			$html .= "<a href=\"$remLink\"><button class=\"btn btn-sm btn-danger\">Remove</button></a>";
 			$html .= "</td></tr>";
 		}
 

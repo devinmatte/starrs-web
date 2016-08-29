@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "systems";
 $route['404_override'] = '';
 // System is a reserved word
 $route['system/(.*?)'] = 'computersystem/$1';

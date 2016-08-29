@@ -1,21 +1,16 @@
-	<form method="POST" class="form-horizontal" id="create-form">
-		<fieldset>
-			<input type="hidden" name="group" value="<?=$g->get_group();?>" />
-			<div class="control-group error">
-				<label class="control-label">User: </label>
-				<div class="controls">
-					<input type="text" name="user" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Group Privilege: </label>
-				<div class="controls">
-					<select name="privilege">
-						<option>USER</option>
-						<option>ADMIN</option>
-						<option>PROGRAM</option>
-					</select>
-				</div>
-			</div>
-		</fieldset>
-	</form>
+<form method="POST" id="create-form">
+	<div class="form-group has-feedback">
+		<label class="control-label">User</label>
+		<input type="text" class="form-control" name="user" />
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label">Group Privilege</label>
+		<select name="privilege" class="form-control">
+			<option>USER</option>
+			<option>ADMIN</option>
+			<option>PROGRAM</option>
+		</select>
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
+</form>

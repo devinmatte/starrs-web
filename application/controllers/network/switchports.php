@@ -9,7 +9,7 @@ class Switchports extends ImpulseController {
 		$this->_setSubHeader("Switchports");
 		$this->_addTrail("Network","/network");
 		$this->_addTrail("Switchports","/network/switchports");
-		$this->_addScript("/js/snmp.js");
+		$this->_addScript("/assets/js/snmp.js");
 	}
 
 	public function index() {

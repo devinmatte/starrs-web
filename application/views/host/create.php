@@ -1,10 +1,13 @@
-	<form method="POST" class="form-horizontal well span9" id="create-form">
-		<fieldset>
-			<legend>Create Host</legend>
-			<div class="control-group error">
-				<label class="control-label">System: </label>
-				<div class="controls">
-					<select name="system_name">
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Create Host</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="create-form">
+				<div class="form-group has-feedback">
+					<label class="control-label">System</label>
+					<select name="system_name" class="form-control">
 						<option selected></option>
 						<?php
 						foreach($systems as $sys) {
@@ -12,25 +15,22 @@
 						}
 						?>
 					</select>
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group error">	
-				<label class="control-label">URI: </label>
-				<div class="controls">
-					<input type="text" name="uri" />
+				<div class="form-group has-feedback">
+					<label class="control-label">URI</label>
+					<input type="text" class="form-control" name="uri" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group warning">
-				<label class="control-label">Password: </label>
-				<div class="controls">
-					<input type="password" name="password" />
+				<div class="form-group">
+					<label class="control-label">Password</label>
+					<input type="password" class="form-control" name="password" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/libvirt/hosts/view" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Create Host" class="btn btn-primary" />
-					<a href="/libvirt/hosts/view" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

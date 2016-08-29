@@ -6,7 +6,7 @@ class Records extends DnsController {
 	public function __construct() {
 		parent::__construct();
 		$this->_setSubHeader("Records");
-		$this->_addScript("/js/dns.js");
+		$this->_addScript("/assets/js/dns.js");
 	}
 
 	public function index() {

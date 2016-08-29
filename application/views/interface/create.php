@@ -1,33 +1,33 @@
-	<form method="POST" class="form-horizontal well span9" id="create-form">
-		<fieldset>
-			<legend>Create Interface</legend>
-			<div class="control-group error">
-				<label class="control-label">Interface Name: </label>
-				<div class="controls">
-					<input type="text" name="name" />
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Create Interface</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="create-form">
+				<div class="form-group has-feedback">
+					<label class="control-label">Interface Name</label>
+					<input type="text" class="form-control" name="name" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group error">
-				<label class="control-label">MAC: </label>
-				<div class="controls">
-					<input type="text" name="mac" />
+				<div class="form-group has-feedback">
+					<label class="control-label">MAC Address</label>
+					<input type="text" class="form-control" name="mac" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 					<?if($random) {?>
 					<a href="#" class="btn" id="random-mac">Random</a>
-					<div id="mac-warning" class="alert hidden" style="margin-top: 1em; margin-bottom: 0em;">Heads Up! You should only use a random MAC address when you do not have access to the system's actual MAC address.</div>
+					<div id="mac-warning" class="alert alert-warning hidden" style="margin-top: 1em; margin-bottom: 0em;">Heads Up! You should only use a random MAC address when you do not have access to the system's actual MAC address.</div>
 					<?}?>
 				</div>
-			</div>
-			<div class="control-group warning">	
-				<label class="control-label">Comment: </label>
-				<div class="controls">
-					<input type="text" name="comment" />
+				<div class="form-group">
+					<label class="control-label">Comment</label>
+					<input type="text" class="form-control" name="comment" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/interfaces/view/<?=rawurlencode($systemName);?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Create Interface" class="btn btn-primary" />
-					<a href="/interfaces/view/<?=rawurlencode($systemName);?>" class="btn">Cancel</a>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>

@@ -13,9 +13,9 @@ class DnsController extends ImpulseController {
 	}
 
 	private function _renderDnsTableButtons($viewLink, $modifyLink, $removeLink) {
-		$actions = "<a href=\"$removeLink\"><button class=\"btn btn-mini btn-danger pull-right\">Remove</button></a><span class=\"pull-right\">&nbsp</span>";
-		$actions .= "<a href=\"$modifyLink\"><button class=\"btn btn-mini btn-warning pull-right\">Modify</button></a><span class=\"pull-right\">&nbsp</span>";
-		$actions .= "<a href=\"$viewLink\"><button class=\"btn btn-info btn-mini pull-right\">Details</button></a>";
+		$actions = "<a href=\"$removeLink\"><button class=\"btn btn-sm btn-danger pull-right\">Remove</button></a><span class=\"pull-right\">&nbsp</span>";
+		$actions .= "<a href=\"$modifyLink\"><button class=\"btn btn-sm btn-warning pull-right\">Modify</button></a><span class=\"pull-right\">&nbsp</span>";
+		$actions .= "<a href=\"$viewLink\"><button class=\"btn btn-info btn-sm pull-right\">Details</button></a>";
 		return $actions;
 	}
 

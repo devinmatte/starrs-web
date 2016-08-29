@@ -1,16 +1,11 @@
-<form class="form-horizontal" id="modify-form">
-	<fieldset>
-		<div class="control-group">
-			<label class="control-label">Old Username: </label>
-			<div class="controls">
-			<input type="text" name="oldusername" readonly value="<?=$user;?>"></input>
-			</div>
-		</div>
-		<div class="control-group error">
-			<label class="control-label">New Username: </label>
-			<div class="controls">
-				<input type="text" name="newusername"></input>
-			</div>
-		</div>
-	</fieldset>
+<form method="POST" id="modify-form">
+	<div class="form-group">
+		<label class="control-label">Old Username</label>
+		<input type="text" class="form-control" name="oldusername" readonly disabled value="<?=$user;?>" />
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label">New Username</label>
+		<input type="text" class="form-control" name="newusername" />
+		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
+	</div>
 </form>

@@ -1,10 +1,15 @@
 <?php
-if($sideContent) {?>
-<div class="span3">        
-	<div class="well sidebar-nav">
-		<ul class="nav nav-list">
-			<?=$sideContent;?>
-		</ul>
-	 </div><!--/.well -->
-</div><!--/.span -->
-<?}?>
+	if ($sideContent) {
+?>
+<div class="col-md-3 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<ul class="nav nav-list">
+				<?=$sideContent;?>
+			</ul>
+		</div>
+	</div>
+</div>
+<?
+	}
+?>

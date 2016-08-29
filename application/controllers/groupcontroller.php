@@ -8,7 +8,7 @@ class Groupcontroller extends ImpulseController {
 		$this->_setNavHeader("Management");
 		$this->_setSubHeader("Groups");
 		$this->_addTrail("Groups","/groups");
-		$this->_addScript("/js/ip.js");
+		$this->_addScript("/assets/js/ip.js");
 	}
 
 	public function index() {
@@ -63,15 +63,15 @@ class Groupcontroller extends ImpulseController {
 		$this->_addAction("Add User","/groupmember/create/".rawurlencode($g->get_group()),"success");
 		$this->_addAction("Add Range","/grouprange/create/".rawurlencode($g->get_group()),"success");
 		if(!($gset instanceof GroupSettings)) {
-			$this->_addAction("Add Provider","/group_settings/create/".rawurlencode($g->get_group()));
+			$this->_addAction("Add Provider","/group_settings/create/".rawurlencode($g->get_group()), "success");
 		}
 		if($gset != null) {
-			$this->_addAction("Modify Provider","/group_settings/modify/".rawurlencode($g->get_group()));
-			$this->_addAction("Remove Provider","/group_settings/remove/".rawurlencode($g->get_group()));
-			$this->_addAction("Reload Members","/group/reload/".rawurlencode($g->get_group()));
+			$this->_addAction("Modify Provider","/group_settings/modify/".rawurlencode($g->get_group()), "warning");
+			$this->_addAction("Remove Provider","/group_settings/remove/".rawurlencode($g->get_group()), "danger");
+			$this->_addAction("Reload Members","/group/reload/".rawurlencode($g->get_group()), "info");
 		}
-		$this->_addAction("Modify","/group/modify/".rawurlencode($g->get_group()));
-		$this->_addAction("Remove","/group/remove/".rawurlencode($g->get_group()));
+		$this->_addAction("Modify","/group/modify/".rawurlencode($g->get_group()), "warning");
+		$this->_addAction("Remove","/group/remove/".rawurlencode($g->get_group()), "danger");
 
 		// Viewdata
 		$viewData['g'] = $g;

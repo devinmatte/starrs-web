@@ -1,28 +1,29 @@
-	<form method="POST" class="form-horizontal well span9" id="modify-form">
-		<fieldset>
-			<legend>Modify Range</legend>
-			<div class="control-group">
-				<label class="control-label">Name: </label>
-				<div class="controls">
-					<input type="text" name="name" value="<?=$r->get_name();?>" />
+<div class="col-md-9 col-sm-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Modify Range</h3>
+		</div>
+		<div class="panel-body">
+			<form method="POST" id="modify-form">
+				<input type="hidden" name="datacenter" value="<?=$r->get_datacenter();?>" />
+				<div class="form-group has-feedback">
+					<label class="control-label">Name</label>
+					<input type="text" class="form-control" name="name" value="<?=$r->get_name();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">First IP: </label>
-				<div class="controls">
-					<input type="text" name="firstip" value="<?=$r->get_first_ip();?>"/>
+				<div class="form-group has-feedback">
+					<label class="control-label">First IP</label>
+					<input type="text" class="form-control" name="firstip" value="<?=$r->get_first_ip();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Last IP: </label>
-				<div class="controls">
-					<input type="text" name="lastip" value="<?=$r->get_last_ip();?>" />
+				<div class="form-group has-feedback">
+					<label class="control-label">Last IP</label>
+					<input type="text" class="form-control" name="lastip" value="<?=$r->get_last_ip();?>" />
+					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Use: </label>
-				<div class="controls">
-					<select name="use">
+				<div class="form-group">
+					<label class="control-label">Use</label>
+					<select name="use" class="form-control">
 						<?php
 						foreach($uses as $use) {
 							if($use == $r->get_use()) {
@@ -35,11 +36,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">DHCP Class: </label>
-				<div class="controls">
-					<select name="class">
+				<div class="form-group">
+					<label class="control-label">DHCP Class</label>
+					<select name="class" class="form-control">
 						<option></option>
 						<?php
 						foreach($classes as $c) {
@@ -53,11 +52,9 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Availability Zone: </label>
-				<div class="controls">
-					<select name="zone">
+				<div class="form-group">
+					<label class="control-label">Availability Zone</label>
+					<select name="zone" class="form-control">
 						<?php
 						foreach($azs as $az) {
 							if($az->get_zone() == $r->get_zone()) {
@@ -70,19 +67,15 @@
 						?>
 					</select>
 				</div>
-			</div>
-			<div class="control-group warning">	
-				<label class="control-label">Comment: </label>
-				<div class="controls">
-					<input type="text" name="comment" value="<?=$r->get_comment();?>" />
+				<div class="form-group">
+					<label class="control-label">Comment</label>
+					<input type="text" class="form-control" name="comment" value="<?=$r->get_comment();?>" />
 				</div>
-			</div>
-			<div class="control-group">	
-				<div class="form-actions">
+				<div class="form-actions pull-right">
+					<a href="/ip/range/view/<?=rawurlencode($r->get_name());?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Save" class="btn btn-primary" />
-					<a href="/ip/range/view/<?=rawurlencode($r->get_name());?>" class="btn">Cancel</a>
 				</div>
-			</div>
-			<input type="hidden" name="datacenter" value="<?=$r->get_datacenter();?>" />
-		</fieldset>
-	</form>
+			</form>
+		</div>
+	</div>
+</div>
