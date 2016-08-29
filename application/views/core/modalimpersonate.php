@@ -11,6 +11,7 @@
                         <label for="modal-impersonate-select">User to Impersonate</label>
                         <select id="modal-impersonate-select" class="form-control" placeholder="Select a user...">
                             <option value="" selected="selected">Select a user...</option>
+                            <option value="all">All</option>
                             <?php
                                 if(isset($users)) {
                                     foreach($users as $user) {
