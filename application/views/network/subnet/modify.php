@@ -95,7 +95,7 @@
 					<input type="text" class="form-control" name="owner" value="<?=$snet->get_owner();?>" <?=(!$isAdmin)?"readonly disabled":'';?> />
 				</div>
 				<div class="form-actions pull-right">
-					<a href="/ip/subnet/view/<?=rawurlencode($snet->get_subnet())?>" class="btn btn-default">Cancel</a>
+					<a href="/network/subnet/view/<?=rawurlencode($snet->get_subnet())?>" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Save" class="btn btn-primary" />
 				</div>
 			</form>

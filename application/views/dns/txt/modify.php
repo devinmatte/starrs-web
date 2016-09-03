@@ -1,7 +1,7 @@
 <form method="POST" id="modify-form">
 	<div class="form-group has-feedback">
 		<label class="control-label">Hostname</label>
-		<select name="hostname">
+		<select name="hostname" class="form-control">
 			<?php
 			foreach($aRecs as $aRec) {
 				if($aRec->get_hostname() == $tRec->get_hostname()) {
@@ -17,7 +17,7 @@
 	</div>
 	<div class="form-group has-feedback">
 		<label class="control-label">Zone</label>
-		<select name="zone">
+		<select name="zone" class="form-control">
 			<?php
 			foreach($zones as $zone) {
 				if($tRec->get_zone() == $zone->get_zone()) {
@@ -33,7 +33,7 @@
 	</div>
 	<div class="form-group">
 		<label class="control-label">Address</label>
-		<select name="address">
+		<select name="address" class="form-control">
 			<?php
 			foreach($intAddrs as $intAddr) {
 				if($intAddr->get_address() == $tRec->get_address()) {

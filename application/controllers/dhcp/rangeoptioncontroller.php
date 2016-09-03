@@ -21,7 +21,7 @@ class Rangeoptioncontroller extends ImpulseController {
 					$this->_post('option'),
 					$this->_post('value')
 				);
-				$this->_sendClient("/ip/range/view/".rawurlencode($r->get_name()));
+				$this->_sendClient("/network/range/view/".rawurlencode($r->get_name()));
 				return;
 			}
 			catch(Exception $e) { $this->_error($e); return; }
@@ -82,7 +82,7 @@ class Rangeoptioncontroller extends ImpulseController {
 				return;
 			}
 
-			$this->_sendClient("/ip/range/view/".rawurlencode($opt->get_range()));
+			$this->_sendClient("/network/range/view/".rawurlencode($opt->get_range()));
 		}
 
 		// Viewdata
@@ -115,7 +115,7 @@ class Rangeoptioncontroller extends ImpulseController {
 					$opt->get_value()
 				);
 
-				$this->_sendClient("/ip/range/view/".rawurlencode($opt->get_range()));
+				$this->_sendClient("/network/range/view/".rawurlencode($opt->get_range()));
 			}
 			catch(Exception $e) { $this->_error($e); return; }
 		}

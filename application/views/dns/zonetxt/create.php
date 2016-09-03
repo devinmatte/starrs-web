@@ -5,7 +5,7 @@
 	</div>
 	<div class="form-group">
 		<label class="control-label">Zone</label>
-		<select name="zone">
+		<select name="zone" class="form-control">
 			<option><?=$zone;?></option>
 		</select>
 	</div>

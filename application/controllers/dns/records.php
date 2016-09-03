@@ -64,7 +64,7 @@ class Records extends DnsController {
 		$this->_addAction("Create","/dns/records/create/".rawurlencode($intAddr->get_address()));
 		// Content
 		try {
-			$content = "<div class=\"span7\">";
+			$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
 			$recs = $this->api->dns->get->recordsByAddress($intAddr->get_address());
 			if(count($recs) == 0) { throw new ObjectNotFoundException(); }
 			$content .= $this->_renderDnsTable($recs,"A/AAAA");

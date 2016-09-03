@@ -10,7 +10,7 @@
 				<dt>Last IP</dt>
 				<dd><?=htmlentities($r->get_last_ip());?></dd>
 				<dt>Subnet</dt>
-				<dd><a href="/ip/subnet/view/<?=rawurlencode($r->get_subnet());?>"><?=htmlentities($r->get_subnet());?></a></dd>
+				<dd><a href="/network/subnet/view/<?=rawurlencode($r->get_subnet());?>"><?=htmlentities($r->get_subnet());?></a></dd>
 				<dt>Use</dt>
 				<dd><?=htmlentities($r->get_use());?></dd>
 				<dt>Class</dt>

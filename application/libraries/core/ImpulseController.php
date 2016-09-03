@@ -13,6 +13,7 @@ class ImpulseController extends CI_Controller {
 	private $subnav;
 	private $contentList;
 	private $sidebarBlank;
+	private $actionsBlank;
 
 	protected $ifState;
 
@@ -62,7 +63,8 @@ class ImpulseController extends CI_Controller {
 
 	private function _configureTable() {
 		$tmpl = array(
-			'table_open' => '<table id="datatable" class="table table-bordered table-striped tablesorter">'
+			'table_open' => '<div class="table-responsive"><table id="datatable" class="table table-bordered table-striped tablesorter">',
+			'table_close' => '</table></div>'
 		);
 
 		$this->table->set_template($tmpl);
@@ -85,12 +87,11 @@ class ImpulseController extends CI_Controller {
 		$userData['userName'] = $this->user->get_user_name();
 		$userData['displayName'] = $this->user->get_display_name();
 		$userData['userLevel'] = $this->user->get_user_level();
-		$userData['userLevel'] = $this->user->get_user_level();
 		$userData['viewUser'] = $this->user->getActiveUser();
 		$userData['header'] = $this->navheader;
 		$userData['sub'] = $this->subnav;
 
-		// If the user is an admin then they have the ability to easily switch "viewing" users
+		// If the user is an admin then they have the ability to impersonate users
 		if($this->user->isadmin()) {
 			try {
 				$userData['users'] = $this->api->get->users();
@@ -109,17 +110,21 @@ class ImpulseController extends CI_Controller {
 
 		// Sidebar
 		if($this->sidebarBlank) {
-			$sidebar = "<div class=\"col-md-3 col-md-offset-3\"></div>";
+			$sidebar = "<div class=\"col-md-3 col-md-pull-3 col-sm-12\"></div>";
 		} else {
 			$sidebar = $this->load->view('core/sidebarblank',array('sideContent'=>$this->sidebarItems),true);
 		}
 
-		// Content
-		if ($this->actions) {
+		// Actions
+		$actions = "";
+		if($this->actionsBlank) {
+			// Fixes push/pull layout when there aren't any actions to display
+			$actions = "<div class=\"col-md-3 col-md-push-9 col-sm-12\"></div>";
+		} else if ($this->actions) {
 			$data['actions'] = $this->actions;
-			$content .= $this->load->view('core/actions', $data, true);
+			$actions = $this->load->view('core/actions', $data, true);
 		}
-
+		
 		// Info
 		$content .= $this->load->view('core/modalinfo',null,true);
 
@@ -172,7 +177,7 @@ class ImpulseController extends CI_Controller {
         }
 
         // Send the data to the browser		
-		$finalOut = $this->load->view('core/main',array('title'=>$title,'navbar'=>$navbar,'breadcrumb'=>$breadcrumb,'sidebar'=>$sidebar,'content'=>$content,'scripts'=>$scripts,'version'=>$version,'maint_url'=>$maint_url,'maint'=>$maint),true);
+		$finalOut = $this->load->view('core/main',array('title'=>$title,'navbar'=>$navbar,'breadcrumb'=>$breadcrumb,'sidebar'=>$sidebar,'content'=>$content,'actions'=>$actions,'scripts'=>$scripts,'version'=>$version,'maint_url'=>$maint_url,'maint'=>$maint),true);
 
 		$this->output->set_output($finalOut);
 		return $finalOut;
@@ -277,10 +282,16 @@ class ImpulseController extends CI_Controller {
 		}
 	}
 
-	protected function _exit($e) {
-		$content = $this->load->view('exceptions/exception',array("exception"=>$e),true);
-		$output = $this->_render($content);
-		die($output);
+	protected function _exit($e, $standalone=false) {
+		if ($standalone) {
+			$content = $this->load->view('exceptions/exception',array("exception"=>$e, "span"=>"12"),true);
+			$content = "<div class=\"row\">".$content."</div>";
+		} else {
+			$content = $this->load->view('exceptions/exception',array("exception"=>$e),true);
+			$content = $this->_render($content);
+		}
+		
+		die($content);
 	}
 
 	protected function _addContentToList($content, $cols) {
@@ -288,7 +299,7 @@ class ImpulseController extends CI_Controller {
 	}
 
 	protected function _renderContentList($cols) {
-		$content = "<div class=\"container span7\">";
+		$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
 		$rowCounter = 0;
 		foreach($this->contentList[$cols] as $view) {
 			if($rowCounter == 0) {
@@ -339,8 +350,8 @@ class ImpulseController extends CI_Controller {
 	}
 
 	protected function _renderOptionView($opts) {
-		$html = "<table class=\"table table-striped table-bordered imp-dnstable\">";
-		$html .= "<tr><th>Option</th><th>Value</th><th style=\"width: 157px\">Actions</th></tr>";
+		$html = "<div class=\"table-responsive\"><table class=\"table table-striped table-bordered imp-dnstable\">";
+		$html .= "<tr><th>Option</th><th>Value</th><th style=\"width: 220px\">Actions</th></tr>";
 		
 		foreach($opts as $opt) {
 			// Links
@@ -377,18 +388,22 @@ class ImpulseController extends CI_Controller {
 			$html .= "</td></tr>";
 		}
 
-		$html .= "</table>";
+		$html .= "</table></div>";
 
 		$view = $this->load->view('dhcp/dhcpoptions',array('table'=>$html),true);
 		return $view;
 	}
 
 	protected function _renderException($e) {
-		return "<div class=\"span7\">".$this->load->view('exceptions/modalerror',array('exception'=>$e),true)."</div>";
+		return "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">".$this->load->view('exceptions/modalerror',array('exception'=>$e),true)."</div>";
 	}
 
 	protected function _sidebarBlank() {
 		$this->sidebarBlank = true;
+	}
+	
+	protected function _actionsBlank() {
+		$this->actionsBlank = true;
 	}
 
 	protected function loadview($path, $data, $return) {

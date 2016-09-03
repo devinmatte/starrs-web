@@ -58,9 +58,9 @@ class Zone extends DnsController {
 			// View Data
 			$viewData['zone'] = $z;
 			$viewData['zoneInfo'] = $zInfo;
-			$viewData['aRecInfo'] = $aRecInfo;
-			$viewData['tRecInfo'] = $tRecInfo;
-			$viewData['nRecInfo'] = $nRecInfo;
+			$viewData['aRecTable'] = $aRecInfo;
+			$viewData['tRecTable'] = $tRecInfo;
+			$viewData['nRecTable'] = $nRecInfo;
 
 			// Breadcrumb
 			$this->_addTrail($z->get_zone(),"/dns/zone/view/".rawurlencode($z->get_zone()));
@@ -117,6 +117,7 @@ class Zone extends DnsController {
 
 		// Content
 		$content = $this->load->view('dns/zone/create',$viewData,true);
+		$content .= $this->forminfo;
 		$this->_render($content);
 	}
 

@@ -71,11 +71,6 @@ class Addresses extends ImpulseController {
 		$this->_addTrail($username,"/systems/view/".rawurlencode($username));
 		$this->_addTrail("Renew","/addresses/viewrenew/".rawurlencode($username));
 
-		// Actions
-		$this->_addAction("Renew All","/address/renew/all");
-
-		// Sidebar
-		$this->_addSidebarHeader("SYSTEMS");
 		$intAddrs = array();
 		try {
 			$systems = $this->api->systems->get->systemsByOwner($username);
@@ -89,6 +84,12 @@ class Addresses extends ImpulseController {
 			}
 		}
 		catch(Exception $e) { $this->_exit($e); return; }
+
+		// Actions
+		$this->_addAction("Renew All","/address/renew/all");
+
+		// Sidebar
+		$this->_addSidebarHeader("SYSTEMS");
 
 		$content = $this->load->view('system/viewrenew',array('intAddrs'=>$intAddrs),true);
 

@@ -51,7 +51,7 @@ class Datacentercontroller extends ImpulseController {
 		foreach($vlans as $v) {
 			$this->_addSidebarItem($v->get_vlan()." (".$v->get_name().")","/network/vlan/view/".rawurlencode($v->get_datacenter())."/".rawurlencode($v->get_vlan()),"signal");
 		}
-		$this->_addSidebarHeader("SUBNETS","/ip/subnets/view/");
+		$this->_addSidebarHeader("SUBNETS","/network/subnets/view/");
 		try {
 			$snets = $this->api->ip->get->subnets(null);
 		}
@@ -59,7 +59,7 @@ class Datacentercontroller extends ImpulseController {
 		catch(Exception $e) { $this->_exit($e); return; }
 		foreach($snets as $snet) {
 			if($snet->get_datacenter() == $dc->get_datacenter()) {
-				$this->_addSidebarItem($snet->get_subnet(),"/ip/subnet/view/".rawurlencode($snet->get_subnet()),"tags");
+				$this->_addSidebarItem($snet->get_subnet(),"/network/subnet/view/".rawurlencode($snet->get_subnet()),"tags");
 			}
 		}
 

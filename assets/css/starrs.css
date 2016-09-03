@@ -262,3 +262,22 @@ body {
         transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
     }
 }
+
+/* Navbar Breakpoint Tweaks */
+.lg-show {
+    display: none !important;
+}
+
+.lg-hide {
+    display: block !important;
+}
+
+@media screen and (max-width: 1200px) {
+    .lg-hide {
+        display: none !important;
+    }
+    
+    .lg-show {
+        display: block !important;
+    }
+}

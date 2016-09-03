@@ -25,6 +25,7 @@ class Cam extends ImpulseController {
 		}
 
 		$content = $this->load->view('cam/information',null,true);
+		$this->_actionsBlank();
 		$this->_render($content);
 	}
 

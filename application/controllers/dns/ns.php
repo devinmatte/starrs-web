@@ -39,7 +39,7 @@ class Ns extends DnsController {
 			try {
 				$zones = $this->api->dns->get->zonesByUser($this->user->getActiveUser());
 			}
-			catch (Exception $e) { $this->_error($e); return; }
+			catch (Exception $e) { $this->_error($e, true); return; }
 			$content = $this->load->view('dns/ns/create',array('zones'=>$zones,'user'=>$this->user,'address'=>$address),true);
 
 			$this->_renderSimple($content);
@@ -91,7 +91,7 @@ class Ns extends DnsController {
 				$nRec = $this->api->dns->get->ns($zone, $nameserver);
 				$zones = $this->api->dns->get->zonesByUser($this->user->getActiveUser());
 			}
-			catch (Exception $e) { $this->_error($e); return; }
+			catch (Exception $e) { $this->_error($e, true); return; }
 
 			// View Data
 			$viewData['nRec'] = $nRec;

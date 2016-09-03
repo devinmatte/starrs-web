@@ -55,7 +55,7 @@ class Classcontroller extends ImpulseController {
 		catch(Exception $e) { $this->_exit($e); return; }
 
 		// Content
-		$content = "<div class=\"span7\">";
+		$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
 		$content .= $this->load->view('dhcp/class/detail',$viewData,true);
 		$content .= $this->_renderOptionView($opts);
 		$content .= "</div>";

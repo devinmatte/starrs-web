@@ -1,7 +1,7 @@
-<div class="col-md-3 col-sm-6 col-xs-12">
+<div class="col-md-6 col-md-pull-3 col-xs-12">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title"><?=htmlentities($v->get_vlan());?></h3>
+			<h3 class="panel-title">VLAN: <?=htmlentities($v->get_vlan());?></h3>
 		</div>
 		<div class="panel-body">
 			<dl class="dl-horizontal">
@@ -20,8 +20,6 @@
 			</dl>
 		</div>
 	</div>
-</div>
-<div class="col-md-3 col-sm-6 col-xs-12">
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">Subnets</h3>
@@ -29,7 +27,7 @@
 		<div class="panel-body">
 			<ul>
 		        <? foreach($snets as $snet) {
-		            print "<li><a href=\"/ip/subnet/view/".rawurlencode($snet->get_subnet())."\">".htmlentities($snet->get_subnet())." (".htmlentities($snet->get_name()).")</a></li>";
+		            print "<li><a href=\"/network/subnet/view/".rawurlencode($snet->get_subnet())."\">".htmlentities($snet->get_subnet())." (".htmlentities($snet->get_name()).")</a></li>";
 		        }?>
 		    </ul>
 		</div>

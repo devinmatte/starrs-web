@@ -36,7 +36,7 @@ class Zonea extends DnsController {
 				catch (Exception $e) { $this->_exit($e); }
 			}
 		}
-		catch(Exception $e) { $this->_exit($e); return; }
+		catch(Exception $e) { $this->_exit($e, true); return; }
 
 		$viewData['zone'] = $zone;
 		$viewData['intAddrs'] = $intAddrs;

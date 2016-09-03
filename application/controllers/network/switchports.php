@@ -26,6 +26,7 @@ class Switchports extends ImpulseController {
 
 		$content = $this->load->view('switchport/information',null,true);
 		
+		$this->_actionsBlank();
 		$this->_render($content);
 	}
 

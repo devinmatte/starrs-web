@@ -7,7 +7,7 @@
             </div>
             <div id="modal-select-body" class="modal-body"></div>
             <div class="modal-footer">
-            	<a href="#" id="cancel" class="btn" data-dismiss="modal">Cancel</a>
+            	<a href="#" id="cancel" class="btn btn-default" data-dismiss="modal">Cancel</a>
 				<a href="#" id="continue" class="btn btn-primary">Continue</a>
 				<a href="#" id="createrec" class="btn btn-primary hide">Create</a>
 			</div>

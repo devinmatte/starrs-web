@@ -48,6 +48,7 @@ class Vlans extends ImpulseController {
 		catch(Exception $e) { $this->_exit($e); return; }
 
 		// Content
+		$this->_actionsBlank();
 		$content = $this->load->view('vlan/information',null,true);
 
 		// Render

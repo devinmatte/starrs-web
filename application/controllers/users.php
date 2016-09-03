@@ -5,7 +5,7 @@ class Users extends ImpulseController {
 
 	public function __construct() {
 		parent::__construct();
-		$this->_setNavHeader("Management");
+		$this->_setNavHeader("Admin");
 		$this->_setSubHeader("Users");
 		$this->_addTrail("Users","#");
 	}

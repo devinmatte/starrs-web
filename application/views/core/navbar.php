@@ -35,44 +35,50 @@
 						<li <?=($sub=='Keys')?'class="active"':null;?>><a href="/dns/keys/">Keys</a></li>
 					</ul>
 				</li>
-				<li class="dropdown <?=($header=='IP')?'active':null;?>">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cubes"></i> IP <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li <?=($sub=='Subnets')?'class="active"':null;?>><a href="/ip/subnets">Subnets</a></li>
-						<li <?=($sub=='Ranges')?'class="active"':null;?>><a href="/ip/ranges">Ranges</a></li>
-					</ul>
-				</li>
 				<li class="dropdown <?=($header=='DHCP')?'active':null;?>">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-feed"></i> DHCP <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li <?=($sub=='Classes')?'class="active"':null;?>><a href="/dhcp/classes/view">Classes</a></li>
 						<li <?=($sub=='Global Options')?'class="active"':null;?>><a href="/dhcp/globaloptions/view">Global Options</a></li>
-						<li <?=($sub=='dhcpd')?'class="active"':null;?>><a href="/dhcp/dhcpd/view">ISC-DHCPD</a></li>
+						<li <?=($sub=='dhcpd')?'class="active"':null;?>><a href="/dhcp/dhcpd/view">ISC-DHCPD Config</a></li>
 					</ul>
 				</li>
-				<li class="dropdown <?=($header=='Management')?'active':null;?>" role="button" aria-haspopup="true" aria-expanded="false">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i> Management <span class="caret"></span></a>
+				<li class="dropdown <?=($header=='Network')?'active':null;?>" role="button" aria-haspopup="true" aria-expanded="false">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exchange"></i> Network <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li <?=($sub=='Subnets')?'class="active"':null;?>><a href="/network/subnets/view">Subnets</a></li>
+						<li <?=($sub=='Ranges')?'class="active"':null;?>><a href="/network/ranges/view">Ranges</a></li>
+						<li <?=($sub=='VLANs')?'class="active"':null;?>><a href="/network/vlans/view">VLANs</a></li>
+						<li class="divider"></li>
+						<li <?=($sub=='SNMP')?'class="active"':null;?>><a href="/network/snmp/">SNMP</a></li>
+						<li <?=($sub=='CAM')?'class="active"':null;?>><a href="/network/cam/">CAM Tables</a></li>
+						<li <?=($sub=='Switchports')?'class="active"':null;?>><a href="/network/switchports/">Switchports</a></li>
+					</ul>
+				</li>
+				<?}?>
+				<?php if($userLevel === "ADMIN") { ?>
+				<li class="dropdown <?=($header=='Admin')?'active':null;?>" role="button" aria-haspopup="true" aria-expanded="false">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i> Admin <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li <?=($sub=='Configuration')?'class="active"':null;?>><a href="/configuration/view">Configuration</a></li>
 						<li <?=($sub=='Groups')?'class="active"':null;?>><a href="/groups/view/">Groups</a></li>
 						<li <?=($sub=='Users')?'class="active"':null;?>><a href="/users/view/">Users</a></li>
 					</ul>
 				</li>
-				<li class="dropdown <?=($header=='Network')?'active':null;?>" role="button" aria-haspopup="true" aria-expanded="false">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exchange"></i> Network <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li <?=($sub=='SNMP')?'class="active"':null;?>><a href="/network/snmp/">SNMP</a></li>
-						<li <?=($sub=='CAM')?'class="active"':null;?>><a href="/network/cam/">CAM Tables</a></li>
-						<li <?=($sub=='VLANs')?'class="active"':null;?>><a href="/network/vlans/">VLANs</a></li>
-						<li <?=($sub=='Switchports')?'class="active"':null;?>><a href="/network/switchports/">Switchports</a></li>
-					</ul>
-				</li>
-				<?}?>
+				<?php } ?>
 				<li <?=($header=='Search')?'class="active"':null;?>><a href="/search"><i class="fa fa-search"></i> Search</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown navbar-user">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    	<?php 
+                    		$impersonating = ($userName !== $viewUser);
+                    		if($impersonating) {
+                    			$userName = $viewUser;
+                    			$displayName = $viewUser;
+                    			$userLevel = "IMPERSONATED";
+                    		}
+                    	?>
                         <img src="https://profiles.csh.rit.edu/image/<?=htmlentities($userName);?>">
                         <?=htmlentities($displayName)." (".htmlentities($userLevel).")"?>
                         <span class="caret"></span>
@@ -80,22 +86,27 @@
                     <ul class="dropdown-menu">
                     	<li><a href="#" id="uitoggle"><span class="glyphicon glyphicon-flash"></span> Advanced Mode</a></li>
                     	<?php 
-                    		if($userName !== $viewUser) {
-                    			// Currently impersonating another user
-                    	?>
-                    	<li><a href="#" id="stopImpersonating"><i class="fa fa-user-secret" aria-hidden="true"></i> Stop Impersonating "<?=$viewUser?>"</a></li>
-                    	<?php
-                    		} else {
-                    			if(isset($users)) {
+                    		if(!$impersonating && isset($users)) {
+                    			// Not impersonating another user and has permission to impersonate
                     	?>
                     	<li><a href="#" data-toggle="modal" data-target="#modal-impersonate"><i class="fa fa-user-secret" aria-hidden="true"></i> Impersonate User</a></li>
                     	<?php
-                    			}
                     		}
                     	?>
                         <li role="separator" class="divider"></li>
                         <li><a href="https://github.com/ComputerScienceHouse/starrs-web/issues" target="_blank"><span class="glyphicon glyphicon-exclamation-sign"></span> Report an Issue</a></li>
-                        <li><a href="https://webauth.csh.rit.edu/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        <?php 
+                    		if($impersonating) {
+                    			// Currently impersonating another user
+                    	?>
+                        <li><a href="#" id="stopImpersonating"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        <?php
+                    		} else {
+                    	?>
+                    	<li><a href="https://webauth.csh.rit.edu/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    	<?php
+                    		}
+                    	?>
                     </ul>
                 </li>
 			</ul>

@@ -66,6 +66,7 @@ class Key extends DnsController {
 
 		$viewData['user'] = $this->user;
 		$content = $this->load->view('dns/key/create',$viewData,true);
+		$content .= $this->forminfo;
 		$this->_render($content);
 	}
 

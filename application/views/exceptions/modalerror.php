@@ -1,4 +1,4 @@
-<div class="alert alert-error imp-modalalert">
+<div class="alert alert-danger imp-modalalert">
 	<h4>Fatal error(s):</h4>
 	<?php
 	if(is_array($exception)) {

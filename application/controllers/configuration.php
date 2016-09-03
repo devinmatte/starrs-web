@@ -5,7 +5,7 @@ class Configuration extends ImpulseController {
 
 	public function __construct() {
 		parent::__construct();
-		$this->_setNavHeader("Management");
+		$this->_setNavHeader("Admin");
 		$this->_setSubHeader("Configuration");
 		$this->_addTrail("Configuration","/configuration/view");
 		$this->_addScript("/assets/js/config.js");

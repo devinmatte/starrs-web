@@ -5,9 +5,9 @@ class Range extends ImpulseController {
 
 	public function __construct() {
 		parent::__construct();
-		$this->_setNavHeader("IP");
+		$this->_setNavHeader("Network");
 		$this->_setSubHeader("Ranges");
-		$this->_addTrail("IP","/ip");
+		$this->_addTrail("Network","/network");
 		$this->_addScript("/assets/js/ip.js");
 	}
 
@@ -28,15 +28,15 @@ class Range extends ImpulseController {
 
 
 		// Trail
-		$this->_addTrail("Subnets","/ip/subnets/");
-		$this->_addTrail($r->get_subnet(),"/ip/subnet/view/".rawurlencode($r->get_subnet()));
-		$this->_addTrail("Ranges","/ip/ranges/view/");
-		$this->_addTrail($r->get_name(),"/ip/range/view/".rawurlencode($r->get_name()));
+		$this->_addTrail("Subnets","/network/subnets/");
+		$this->_addTrail($r->get_subnet(),"/network/subnet/view/".rawurlencode($r->get_subnet()));
+		$this->_addTrail("Ranges","/network/ranges/view/");
+		$this->_addTrail($r->get_name(),"/network/range/view/".rawurlencode($r->get_name()));
 
 		// Actions
 		$this->_addAction("Create DHCP Option","/dhcp/rangeoption/create/".rawurlencode($r->get_name()),"success");
-		$this->_addAction("Modify","/ip/range/modify/".rawurlencode($r->get_name()));
-		$this->_addAction("Remove","/ip/range/remove/".rawurlencode($r->get_name()));
+		$this->_addAction("Modify","/network/range/modify/".rawurlencode($r->get_name()));
+		$this->_addAction("Remove","/network/range/remove/".rawurlencode($r->get_name()));
 
 		// Sidebar
 		try {
@@ -48,9 +48,9 @@ class Range extends ImpulseController {
 		$this->_addSidebarHeader("RANGES");
 		foreach($rs as $rng) {
 			if($rng->get_name() == $r->get_name()) {
-				$this->_addSidebarItem($rng->get_name(),"/ip/range/view/".rawurlencode($rng->get_name()),"resize-full",1);
+				$this->_addSidebarItem($rng->get_name(),"/network/range/view/".rawurlencode($rng->get_name()),"resize-full",1);
 			} else {
-				$this->_addSidebarItem($rng->get_name(),"/ip/range/view/".rawurlencode($rng->get_name()),"resize-full");
+				$this->_addSidebarItem($rng->get_name(),"/network/range/view/".rawurlencode($rng->get_name()),"resize-full");
 			}
 		}
 
@@ -69,8 +69,8 @@ class Range extends ImpulseController {
         catch(Exception $e) { $this->_exit($e); return; }
 
 		// Content
-		$content = "<div class=span7>";
-		$content .= $this->load->view('ip/range/detail',array('r'=>$r,'stat'=>$stat, 'gs'=>$gs),true);
+		$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
+		$content .= $this->load->view('network/range/detail',array('r'=>$r,'stat'=>$stat, 'gs'=>$gs),true);
 		$content .= $this->_renderOptionView($opts);
 		$content .= "</div>";
 
@@ -102,15 +102,15 @@ class Range extends ImpulseController {
 					$this->_post('zone')
 				);
 
-				$this->_sendClient("/ip/range/view/".rawurlencode($r->get_name()));
+				$this->_sendClient("/network/range/view/".rawurlencode($r->get_name()));
 			}
 			catch(Exception $e) { $this->_error($e); return; }
 		}
 
 		// Trail
-		$this->_addTrail("Subnets","/ip/subnets/");
-		$this->_addTrail($snet->get_subnet(),"/ip/subnet/view/".rawurlencode($snet->get_subnet()));
-		$this->_addTrail("Ranges","/ip/ranges/view/");
+		$this->_addTrail("Subnets","/network/subnets/");
+		$this->_addTrail($snet->get_subnet(),"/network/subnet/view/".rawurlencode($snet->get_subnet()));
+		$this->_addTrail("Ranges","/network/ranges/view/");
 
 		// Viewdata
 		$viewData['snet'] = $snet;
@@ -127,7 +127,7 @@ class Range extends ImpulseController {
 		catch(Exception $e) { $this->_exit($e); return; }
 
 		// Content
-		$content = $this->load->view('ip/range/create',$viewData,true);
+		$content = $this->load->view('network/range/create',$viewData,true);
 		$content .= $this->forminfo;
 
 		// Render
@@ -180,14 +180,14 @@ class Range extends ImpulseController {
 				return;
 			}
 			
-			$this->_sendClient("/ip/range/view/".rawurlencode($r->get_name()));
+			$this->_sendClient("/network/range/view/".rawurlencode($r->get_name()));
 
 		}
 
 		// Trail
-		$this->_addTrail("Subnets","/ip/subnets/");
-		$this->_addTrail($r->get_subnet(),"/ip/subnet/view/".rawurlencode($r->get_subnet()));
-		$this->_addTrail("Ranges","/ip/ranges/view/");
+		$this->_addTrail("Subnets","/network/subnets/");
+		$this->_addTrail($r->get_subnet(),"/network/subnet/view/".rawurlencode($r->get_subnet()));
+		$this->_addTrail("Ranges","/network/ranges/view/");
 
 		// Viewdata
 		$viewData['r'] = $r;
@@ -196,7 +196,7 @@ class Range extends ImpulseController {
 		$viewData['azs'] = $this->api->systems->get->availabilityzonesByDatacenter($r->get_datacenter());
 
 		// Content
-		$content = $this->load->view('ip/range/modify',$viewData,true);
+		$content = $this->load->view('network/range/modify',$viewData,true);
 		$content .= $this->forminfo;
 
 		// Render
@@ -216,7 +216,7 @@ class Range extends ImpulseController {
 		if($this->input->post('confirm')) {
 			try {
 				$this->api->ip->remove->range($r->get_name());
-				$this->_sendClient("/ip/subnet/view/".rawurlencode($r->get_subnet()));
+				$this->_sendClient("/network/subnet/view/".rawurlencode($r->get_subnet()));
 			}	
 			catch(Exception $e) { $this->_error($e); return; }
 		}

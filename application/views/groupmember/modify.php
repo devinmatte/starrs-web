@@ -1,4 +1,5 @@
 <form method="POST" id="create-form">
+	<input type="hidden" name="group" value="<?=$gm->get_group();?>" />
 	<div class="form-group has-feedback">
 		<label class="control-label">User</label>
 		<input type="text" class="form-control" name="user" value="<?=$gm->get_user();?>" />

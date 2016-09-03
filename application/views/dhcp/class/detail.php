@@ -1,4 +1,4 @@
-<div class="col-md-6 col-sm-12">
+<div class="col-md-6 col-md-pull-3 col-sm-12">
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<h4><?=htmlentities($c->get_class());?></h4>

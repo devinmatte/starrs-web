@@ -182,11 +182,17 @@ class ComputerSystem extends ImpulseController {
                     return; 
                 }
             }
-			if($this->user->isadmin()) {
-				$viewData['default_group'] = $this->api->get->group($this->api->get->site_configuration('DEFAULT_LOCAL_ADMIN_GROUP'))->get_group();
-                $viewData['default_owner'] = $this->user->getActiveUser();
-			} else {
-				$viewData['default_group'] = $this->api->get->group($this->api->get->site_configuration('DEFAULT_LOCAL_USER_GROUP'))->get_group();
+            try {
+            	if($this->user->isadmin()) {
+					$viewData['default_group'] = $this->api->get->group($this->api->get->site_configuration('DEFAULT_LOCAL_ADMIN_GROUP'))->get_group();
+	                $viewData['default_owner'] = $this->user->getActiveUser();
+				} else {
+					$viewData['default_group'] = $this->api->get->group($this->api->get->site_configuration('DEFAULT_LOCAL_USER_GROUP'))->get_group();
+				}
+            }
+            catch(ObjectNotFoundException $e) {
+				$this->_exit(new Exception("No default groups configured! Set the DEFAULT_LOCAL_ADMIN_GROUP and DEFAULT_LOCAL_USER_GROUP before attempting to create a system."));
+				return;
 			}
 			try {
 				$viewData['dcs'] = $this->api->systems->get->datacenters();

@@ -24,7 +24,7 @@ class Zonetxt extends DnsController {
 				$this->_sendClient("/dns/zone/view/".rawurlencode($zt->get_zone()));
 				return;
 			}
-			catch (Exception $e) { $this->_error($e); return; }
+			catch (Exception $e) { $this->_error($e, true); return; }
 		}
 
 		$viewData['zone'] = $zone;
@@ -42,7 +42,7 @@ class Zonetxt extends DnsController {
 			$zt = $this->api->dns->get->zonetxtByZoneHash($zone,$hash);
 			$this->load->view('dns/zonetxt/detail',array('rec'=>$zt));
 		}
-		catch(Exception $e) { $this->_error($e); return; }
+		catch(Exception $e) { $this->_error($e, true); return; }
 	}
 
 	public function remove($zone=null,$hash=null) {
@@ -54,7 +54,7 @@ class Zonetxt extends DnsController {
 		try {
 			$zt = $this->api->dns->get->zonetxtByZoneHash($zone,$hash);
 		}
-		catch(Exception $e) { $this->_error($e); return; }
+		catch(Exception $e) { $this->_error($e, true); return; }
 
 		if($this->input->post('confirm')) {
 			try {
@@ -77,7 +77,7 @@ class Zonetxt extends DnsController {
 		try {
 			$zt = $this->api->dns->get->zonetxtByZoneHash($zone,$hash);
 		}
-		catch(Exception $e) { $this->_error($e); return; }
+		catch(Exception $e) { $this->_error($e, true); return; }
 		
 		if($this->input->post()) {
 			$err = array();

@@ -5,11 +5,11 @@ class Subnetcontroller extends ImpulseController {
 
 	public function __construct() {
 		parent::__construct();
-		$this->_setNavHeader("IP");
+		$this->_setNavHeader("Network");
 		$this->_setSubHeader("Subnets");
 		$this->_addScript("/assets/js/ip.js");
-		$this->_addTrail("IP","/ip");
-		$this->_addTrail("Subnets","/ip/subnets/");
+		$this->_addTrail("Network","/network");
+		$this->_addTrail("Subnets","/network/subnets/");
 	}
 
 	public function index() {
@@ -34,13 +34,13 @@ class Subnetcontroller extends ImpulseController {
 		catch(Exception $e) { $this->_exit($e); return; }
 
 		// Trail
-		$this->_addTrail($snet->get_subnet(),"/ip/subnet/view/".rawurlencode($snet->get_subnet()));
+		$this->_addTrail($snet->get_subnet(),"/network/subnet/view/".rawurlencode($snet->get_subnet()));
 
 		// Actions
-		$this->_addAction("Create Range","/ip/range/create/".rawurlencode($snet->get_subnet()),"success");
+		$this->_addAction("Create Range","/network/range/create/".rawurlencode($snet->get_subnet()),"success");
 		$this->_addAction("Create DHCP Option","/dhcp/subnetoption/create/".rawurlencode($snet->get_subnet()),"success");
-		$this->_addAction("Modify","/ip/subnet/modify/".rawurlencode($snet->get_subnet()));
-		$this->_addAction("Remove","/ip/subnet/remove/".rawurlencode($snet->get_subnet()));
+		$this->_addAction("Modify","/network/subnet/modify/".rawurlencode($snet->get_subnet()));
+		$this->_addAction("Remove","/network/subnet/remove/".rawurlencode($snet->get_subnet()));
 
 		// Options
 		try {
@@ -62,8 +62,8 @@ class Subnetcontroller extends ImpulseController {
 		$viewData['stat'] = $stat;
 
 		// Content
-		$content = "<div class=\"span7\">";
-		$content .= $this->load->view('ip/subnet/detail',$viewData,true);
+		$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
+		$content .= $this->load->view('network/subnet/detail',$viewData,true);
 		$content .= $this->_renderOptionView($opts);
 		$content .= "</div>";
 
@@ -72,9 +72,9 @@ class Subnetcontroller extends ImpulseController {
 		foreach($snets as $sn) {
             $stat = $this->api->ip->get->subnetStats($sn->get_subnet());
 			if($sn->get_subnet() == $snet->get_subnet()) {
-				$this->_addSidebarItem($sn->get_subnet()." (".$stat->free.")","/ip/subnet/view/".rawurlencode($sn->get_subnet()),"tags",1);
+				$this->_addSidebarItem($sn->get_subnet()." (".$stat->free.")","/network/subnet/view/".rawurlencode($sn->get_subnet()),"tags",1);
 			} else {
-				$this->_addSidebarItem($sn->get_subnet()." (".$stat->free.")","/ip/subnet/view/".rawurlencode($sn->get_subnet()),"tags");
+				$this->_addSidebarItem($sn->get_subnet()." (".$stat->free.")","/network/subnet/view/".rawurlencode($sn->get_subnet()),"tags");
 			}
 		}
 
@@ -98,7 +98,7 @@ class Subnetcontroller extends ImpulseController {
 					$this->_post('vlan')
 				);
 
-				$this->_sendClient("/ip/subnet/view/".rawurlencode($snet->get_subnet()));
+				$this->_sendClient("/network/subnet/view/".rawurlencode($snet->get_subnet()));
 			}
 			catch(Exception $e) { $this->_error($e); return; }
 		}
@@ -123,7 +123,7 @@ class Subnetcontroller extends ImpulseController {
 		catch(ObjectNotFoundException $e) { $this->_exit(new Exception("No VLANs found. Configure at least one datacenter before creating a subnet")); return; }
 		catch(Exception $e) { $this->_exit($e); return; }
 
-		$content = $this->load->view('ip/subnet/create',$viewData,true);
+		$content = $this->load->view('network/subnet/create',$viewData,true);
 		$content .= $this->forminfo;
 		
 		// Render
@@ -186,7 +186,7 @@ class Subnetcontroller extends ImpulseController {
 				$this->_error($err);
 				return;
 			}
-			$this->_sendClient("/ip/subnet/view/".rawurlencode($snet->get_subnet()));
+			$this->_sendClient("/network/subnet/view/".rawurlencode($snet->get_subnet()));
 		}
 
 		// Viewdata
@@ -201,7 +201,7 @@ class Subnetcontroller extends ImpulseController {
 		catch(Exception $e) { $this->_exit($e); return; }
 
 		// Content
-		$content = $this->load->view('ip/subnet/modify',$viewData,true);
+		$content = $this->load->view('network/subnet/modify',$viewData,true);
 		$content .= $this->forminfo;
 
 		// Render
@@ -222,7 +222,7 @@ class Subnetcontroller extends ImpulseController {
 		if($this->input->post('confirm')) {
 			try {
 				$this->api->ip->remove->subnet($snet->get_subnet());
-				$this->_sendClient("/ip/subnets/view");
+				$this->_sendClient("/network/subnets/view");
 			}
 			catch(Exception $e) { $this->_error($e); return; }
 		}

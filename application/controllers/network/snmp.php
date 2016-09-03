@@ -26,6 +26,7 @@ class Snmp extends ImpulseController {
 
 		$content = $this->load->view('snmp/information',null,true);
 		
+		$this->_actionsBlank();
 		$this->_render($content);
 	}
 

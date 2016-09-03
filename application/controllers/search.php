@@ -114,7 +114,7 @@ class Search extends ImpulseController {
 					$result['zone'] = "<a href=\"/dns/zone/view/".rawurlencode($result['zone'])."\">{$result['zone']}</a>";
 				}
 				if(isset($fields['range'])) {
-					$result['range'] = "<a href=\"/ip/range/view/".rawurlencode($result['range'])."\">{$result['range']}</a>";
+					$result['range'] = "<a href=\"/network/range/view/".rawurlencode($result['range'])."\">{$result['range']}</a>";
 				}
 				$results[] = $result;
 			}

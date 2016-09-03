@@ -70,8 +70,8 @@
 					<label class="control-label">Owner</label>
 					<input type="text" class="form-control" name="owner" <?=($user->isAdmin())?"":"readonly disabled";?> value="<?=($user->isAdmin())?htmlentities($default_owner):htmlentities($user->get_user_name());?>" />
                     <?if($user->isAdmin()) {?>
-                    <input type="hidden" disabled=true name="username" value="<?=$user->get_user_name();?>" />
-					<a href="#" class="btn" id="me-button">Me</a>
+                    <input type="hidden" class="form-control" disabled="true" name="username" value="<?=$user->get_user_name();?>" />
+					<!-- <a href="#" class="btn btn-default" id="me-button">Me</a> -->
                     <?}?>
 				</div>
 				<div class="form-group">

@@ -35,7 +35,7 @@ class Availabilityzonecontroller extends ImpulseController {
 		catch(Exception $e) { $this->_exit($e); return; }
 
 		foreach($rs as $r) {
-			$this->_addSidebarItem($r->get_name(),"/ip/range/view/".rawurlencode($r->get_name()),"resize-full");
+			$this->_addSidebarItem($r->get_name(),"/network/range/view/".rawurlencode($r->get_name()),"resize-full");
 		}
 
 		// Actions
@@ -89,7 +89,8 @@ class Availabilityzonecontroller extends ImpulseController {
 
 		// Content
 		$content = $this->load->view('availabilityzone/create',$viewData,true);
-
+		$content .= $this->forminfo;
+		
 		// Render
 		$this->_render($content);
 	}

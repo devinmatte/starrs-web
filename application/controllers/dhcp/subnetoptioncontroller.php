@@ -21,7 +21,7 @@ class Subnetoptioncontroller extends ImpulseController {
 					$this->_post('option'),
 					$this->_post('value')
 				);
-				$this->_sendClient("/ip/subnet/view/".rawurlencode($snet->get_subnet()));
+				$this->_sendClient("/network/subnet/view/".rawurlencode($snet->get_subnet()));
 				return;
 			}
 			catch(Exception $e) { $this->_error($e); return; }
@@ -82,7 +82,7 @@ class Subnetoptioncontroller extends ImpulseController {
 				return;
 			}
 
-			$this->_sendClient("/ip/subnet/view/".rawurlencode($opt->get_subnet()));
+			$this->_sendClient("/network/subnet/view/".rawurlencode($opt->get_subnet()));
 		}
 
 		// Viewdata
@@ -115,7 +115,7 @@ class Subnetoptioncontroller extends ImpulseController {
 					$opt->get_value()
 				);
 
-				$this->_sendClient("/ip/subnet/view/".rawurlencode($opt->get_subnet()));
+				$this->_sendClient("/network/subnet/view/".rawurlencode($opt->get_subnet()));
 			}
 			catch(Exception $e) { $this->_error($e); return; }
 		}

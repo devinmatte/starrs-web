@@ -24,15 +24,11 @@ class Globaloptions extends ImpulseController {
 		catch(ObjectNotFoundException $e) { $opts = array(); }
 		catch(Exception $e) { $this->_exit($e); return; }
 
-		$this->_sidebarBlank();
-
 		// Actions
 		$this->_addAction("Create DHCP Option","/dhcp/globaloption/create","success");
 
 		// Content
-		$content = "<div class=\"span7\">";
-		$content .= $this->_renderOptionView($opts);
-		$content .= "</div>";
+		$content = $this->_renderOptionView($opts);
 
 		// Render
 		$this->_render($content);

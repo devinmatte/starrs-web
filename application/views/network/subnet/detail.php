@@ -1,7 +1,7 @@
-<div class="col-md-6 col-sm-12">
+<div class="col-md-6 col-md-pull-3 col-sm-12">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title"><a href="/ip/subnet/view/<?=rawurlencode($snet->get_subnet());?>"><?=htmlentities($snet->get_subnet());?></h2></a></h3>
+			<h3 class="panel-title"><a href="/network/subnet/view/<?=rawurlencode($snet->get_subnet());?>"><?=htmlentities($snet->get_subnet());?></h2></a></h3>
 		</div>
 		<div class="panel-body">
 			<dl class="dl-horizontal">
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 </div>
-<div class="col-md-6 col-sm-12">
+<div class="col-md-6 col-md-pull-3 col-sm-12">
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">Utilization</h3>
@@ -71,7 +71,7 @@
 				<ul>
 					<?
 					foreach($ranges as $r) {
-						print "<li><a href=\"/ip/range/view/".rawurlencode($r->get_name())."\">".htmlentities($r->get_first_ip())." - ".htmlentities($r->get_last_ip())." (".htmlentities($r->get_name()).")</a></li>";
+						print "<li><a href=\"/network/range/view/".rawurlencode($r->get_name())."\">".htmlentities($r->get_first_ip())." - ".htmlentities($r->get_last_ip())." (".htmlentities($r->get_name()).")</a></li>";
 					}
 					?>
 				</ul>

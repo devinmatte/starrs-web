@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 		
 		<title><?=$title;?></title>
 		
@@ -35,7 +35,7 @@
 		
 		<div class="container">
 			<!--[if lt IE 9]>
-				<div class="alert">
+				<div class="alert alert-danger">
 					WARNING! You are using Microsoft Internet Explorer which is not fully supported at this time and may cause unintended operation. Please use Google Chrome or Mozilla Firefox to ensure all features function as intended.
 				</div>
 			<![endif]-->
@@ -43,6 +43,7 @@
 			<?=$breadcrumb;?>
 			
 			<div class="row">
+				<?=$actions;?>
 				<?=$sidebar;?>
 				<?=$content;?>
 			</div>

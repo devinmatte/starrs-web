@@ -2,7 +2,7 @@
 	<div class="form-group has-feedback">
 		<label class="control-label">Action</label>
 		<div class="controls">
-			<select name="action">
+			<select name="action" class="form-control">
 				<option value="create">Power On</option>
 				<option value="destroy">Force Off</option>
 				<option value="reset">Force Reset</option>

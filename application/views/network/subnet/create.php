@@ -5,7 +5,6 @@
 		</div>
 		<div class="panel-body">
 			<form method="POST" id="create-form">
-				<input type="hidden" name="datacenter" value="<?=$snet->get_datacenter();?>" />
 				<div class="form-group has-feedback">
 					<label class="control-label">Name</label>
 					<input type="text" class="form-control" name="name" />
@@ -66,7 +65,7 @@
 					<input type="text" class="form-control" name="owner" <?=($user->isAdmin())?"":"readonly disabled";?> value="<?=htmlentities($user->get_user_name());?>" />
 				</div>
 				<div class="form-actions pull-right">
-					<a href="/ip/subnets/view" class="btn btn-default">Cancel</a>
+					<a href="/network/subnets/view" class="btn btn-default">Cancel</a>
 					<input type="submit" name="submit" value="Create Subnet" class="btn btn-primary" />
 				</div>
 			</form>
