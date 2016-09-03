@@ -300,19 +300,11 @@ class ImpulseController extends CI_Controller {
 
 	protected function _renderContentList($cols) {
 		$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
-		$rowCounter = 0;
 		foreach($this->contentList[$cols] as $view) {
-			if($rowCounter == 0) {
-				$content .= "<div class=\"row\">";
-			}
-			elseif($rowCounter % $cols == 0) {
-				$content .= "</div><div class=\"row\">";
-			}
 			$content .= $view;
-			$rowCounter++;
 		}
 
-		$content .= "</div></div>";
+		$content .= "</div>";
 		return $content;
 	}
 

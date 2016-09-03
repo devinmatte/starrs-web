@@ -25,7 +25,7 @@ class DnsController extends ImpulseController {
 		$weightHead= "<th style=\"width: 3.6em\">Weight</th>";
 		$priorityHead= "<th style=\"width: 3.6em\">Priority</th>";
 		$typeHead= "<th style=\"width: 3.6em\">Type</th>";
-		$table = "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h3 class=\"panel-title\">".$header."</h3></div><div class=\"panel-body\">";
+		$table = "<div class=\"panel panel-default\" id=\"".$header."\"><div class=\"panel-heading\"><h3 class=\"panel-title\">".$header."</h3></div><div class=\"panel-body\">";
 		$table .= "<div class=\"table-responsive\"><table class=\"table table-striped table-bordered imp-dnstable\">";
 		switch($header) {
 			case "Zone A/AAAA":
