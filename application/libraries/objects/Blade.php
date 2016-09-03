@@ -66,7 +66,7 @@ class Blade {
 				if(!$ifs) { continue; }
 				$currIf = array_shift($ifs);
 				$spanCount = floor(12 / $this->portsPerGroup);
-				$html .= "<div id=\"{$currIf->get_index()}\" class=\"span$spanCount switchport-div imp-switchport imp-".$currIf->get_css_class()."\"><a id=\"{$currIf->get_index()}-a\" class=\"switchport-link\" href=\"/network/switchport/view/".rawurlencode($currIf->get_system_name())."/".rawurlencode($currIf->get_index())."\"></a>{$currIf->get_number()}</div>";
+				$html .= "<div id=\"{$currIf->get_index()}\" class=\"span$spanCount switchport-div starrs-switchport starrs-switchport-".$currIf->get_css_class()."\"><a id=\"{$currIf->get_index()}-a\" class=\"switchport-link\" href=\"/network/switchport/view/".rawurlencode($currIf->get_system_name())."/".rawurlencode($currIf->get_index())."\"></a>{$currIf->get_number()}</div>";
 			}
 			$html .= "</div>";
 		}

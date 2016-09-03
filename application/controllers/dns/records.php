@@ -76,7 +76,7 @@ class Records extends DnsController {
 			$content .= $this->_renderDnsTable($recs,"NS");
 			$content .= "</div>";
 		}
-		catch (ObjectNotFoundException $e) { $content = $this->load->view('exceptions/objectnotfound',array('span'=>7),true); }
+		catch (ObjectNotFoundException $e) { $content = $this->load->view('exceptions/objectnotfound',array('span'=>6),true); }
 		catch (Exception $e) { $this->_exit($e); return; }
 
 		// Sidebar

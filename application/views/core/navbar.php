@@ -23,6 +23,10 @@
 						<li <?=($sub=='Systems')?'class="active"':null;?>><a href="/systems/view/">My Systems (<?=$viewUser?>)</a></li>
 						<li <?=($sub=='Renew')?'class="active"':null;?>><a href="/addresses/viewrenew/">Renewal</a></li>
 						<li <?=($sub=='Quick Create')?'class="active"':null;?>><a href="/system/quickcreate/">Quick Create</a></li>
+						<?php if($userLevel === "ADMIN") { ?>
+						<li class="sm-show divider"></li>
+						<li class="sm-show<?=($header=='Search')?' active':null;?>"><a href="/search">Search</a></li>
+						<?php } ?>
 					</ul>
 				</li>
 				<?php
@@ -66,7 +70,7 @@
 					</ul>
 				</li>
 				<?php } ?>
-				<li <?=($header=='Search')?'class="active"':null;?>><a href="/search"><i class="fa fa-search"></i> Search</a></li>
+				<li class="<?=($userLevel === "ADMIN")?'sm-hide':null;?> <?=($header=='Search')?"active":null;?>"><a href="/search"><i class="fa fa-search"></i> Search</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown navbar-user">
@@ -76,11 +80,10 @@
                     		if($impersonating) {
                     			$userName = $viewUser;
                     			$displayName = $viewUser;
-                    			$userLevel = "IMPERSONATED";
                     		}
                     	?>
                         <img src="https://profiles.csh.rit.edu/image/<?=htmlentities($userName);?>">
-                        <?=htmlentities($displayName)." (".htmlentities($userLevel).")"?>
+                        <span class="sm-hide"><?=htmlentities($displayName)?></span>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">

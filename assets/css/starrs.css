@@ -1,3 +1,5 @@
+/* Global Styles */
+
 body {
     margin-top: 90px;
     padding-bottom: 40px;
@@ -7,61 +9,25 @@ body {
     color: #e51c23;
 }
 
-.sidebar-nav {
-    padding: 9px 0;
-}
-
-.imp-actionbtn {
+.starrs-actionbtn {
     width: 100%;
     margin-bottom: 5px;
     margin-top: 5px;
-}
-
-.imp-actionbtn a {
-    color: inherit;
 }
 
 #modal-error-body {
     border-radius: 0;
 }
 
-.imp-modalalert {
+.starrs-modal-alert {
     margin-bottom: 0;
 }
 
-.imp-dnsheader {
-    border: 1px solid #DDD;
-    border-bottom: none;
-    padding: 8px;
-    background-color: #F9F9F9;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-}
-
-.imp-dnstable {
-    table-layout: fixed;
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-}
-
-.imp-dnstable th {
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-}
-
-.imp-dnstable td {
-    word-wrap: break-word;
-}
-
-.navbar-inner .container-fluid {
-    padding-right: 10px;
-}
-
-.imp-hide {
+.starrs-hide {
     display: none;
 }
 
-.imp-switchport {
+.starrs-switchport {
     background-color: green;
     text-align: center;
     color: white;
@@ -69,60 +35,12 @@ body {
     padding-top: 5px;
 }
 
-.imp-up {
+.starrs-switchport-up {
     background-color: #468847;
 }
 
-.imp-down {
+.starrs-switchport-down {
     background-color: #333;
-}
-
-.imp-disabled {
-    background-color: #B94A48;
-}
-
-.imp-loading {
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.imp-simplebutton {
-    margin-bottom: 1.5em;
-}
-
-.imp-simplebuttontable {
-    width: 100%;
-}
-
-.imp-simplebuttontest {
-    min-height: 3em !important;
-    margin-bottom: 1em;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.imp-simplebutton h2 {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.imp-sbtncontainer {
-    display: table !important;
-    min-height: 8em !important;
-    width: 100%;
-    margin-bottom: 1em;
-}
-
-.imp-sbtn {
-    display: table-cell;
-    vertical-align: middle;
-    height: 8em;
-}
-
-.imp-logo {
-    height: 60px;
-    margin-bottom: 10px;
 }
 
 .form-actions {
@@ -133,11 +51,23 @@ body {
     margin-top: 30px;
 }
 
-.selectize-input.focus {
-    border-color: #B0197E;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(176, 25, 126, 0.6);
+/* Navbar Tweaks */
+
+.sm-show {
+    display: none;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .sm-hide {
+        display: none !important;
+    }
+    
+    .sm-show {
+        display: block;
+    }
+}
+
+/* Backport Nav-List from Bootstrap 2 */
 
 .nav-list> li> a {
     padding: 3px 15px;
@@ -162,6 +92,14 @@ body {
 
 .nav-list> li.nav-header> a:hover {
     background: none;
+}
+
+/* Selectize Tweaks */
+
+.selectize-input.focus {
+    border-color: #B0197E;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(176, 25, 126, 0.6);
 }
 
 /* Loader */
@@ -260,24 +198,5 @@ body {
     }
     100% {
         transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
-    }
-}
-
-/* Navbar Breakpoint Tweaks */
-.lg-show {
-    display: none !important;
-}
-
-.lg-hide {
-    display: block !important;
-}
-
-@media screen and (max-width: 1200px) {
-    .lg-hide {
-        display: none !important;
-    }
-    
-    .lg-show {
-        display: block !important;
     }
 }

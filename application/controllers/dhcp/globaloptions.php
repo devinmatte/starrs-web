@@ -28,7 +28,9 @@ class Globaloptions extends ImpulseController {
 		$this->_addAction("Create DHCP Option","/dhcp/globaloption/create","success");
 
 		// Content
-		$content = $this->_renderOptionView($opts);
+		$content = "<div class=\"col-md-9 col-md-pull-3 col-sm-12\">";
+		$content .= $this->_renderOptionView($opts);
+		$content .= "</div>";
 
 		// Render
 		$this->_render($content);

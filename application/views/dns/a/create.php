@@ -1,7 +1,7 @@
 <form method="POST" id="create-form">
 	<div class="form-group has-feedback">
 		<label class="control-label">Hostname</label>
-		<input type="text" class="form-control" name="hostname" />&nbsp;<span id="inuse" class="label label-important imp-hide">In use!</span>
+		<input type="text" class="form-control" name="hostname" />&nbsp;<span id="inuse" class="label label-important starrs-hide">In use!</span>
 		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 	</div>
 	<div class="form-group">

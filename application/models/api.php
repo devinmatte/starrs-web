@@ -66,14 +66,14 @@ class Api extends ImpulseModel {
 	public function search($searchArray, $fields) {
 		// Build query string
 		$searchString = "WHERE system_name IS NOT NULL ";
-		if($searchArray['datacenter']) {
+		if(array_key_exists('datacenter', $searchArray) && $searchArray['datacenter']) {
 			if($searchArray['datacenter'] == 'null') {
 				$searchString .= "AND datacenter IS NULL ";
 			} else {
 				$searchString .= "AND datacenter ~* {$this->db->escape($searchArray['datacenter'])} ";
 			}
 		}
-		if($searchArray['location']) {
+		if(array_key_exists('location', $searchArray) && $searchArray['location']) {
 			if($searchArray['location'] == 'null') {
 				$searchString .= "AND location IS NULL ";
 			} elseif($searchArray['location'] == 'not null') {
@@ -82,94 +82,94 @@ class Api extends ImpulseModel {
 				$searchString .= "AND location ~* {$this->db->escape($searchArray['location'])} ";
 			}
 		}
-		if($searchArray['systemName']) {
+		if(array_key_exists('systemName', $searchArray) && $searchArray['systemName']) {
 			if($searchArray['systemName'] == 'null') {
 				$searchString .= "AND system_name IS NULL ";
 			} else {
 				$searchString .= "AND system_name ~* {$this->db->escape($searchArray['systemName'])} ";
 			}
 		}
-		if($searchArray['asset']) {
+		if(array_key_exists('asset', $searchArray) && $searchArray['asset']) {
 			if($searchArray['asset'] == 'null') {
 				$searchString .= "AND asset IS NULL ";
 			} else {
 				$searchString .= "AND asset ~* {$this->db->escape($searchArray['asset'])} ";
 			}
 		}
-		if($searchArray['group']) {
+		if(array_key_exists('group', $searchArray) && $searchArray['group']) {
 			if($searchArray['group'] == 'null') {
 				$searchString .= "AND group IS NULL ";
 			} else {
 				$searchString .= "AND \"group\" ~* {$this->db->escape($searchArray['group'])} ";
 			}
 		}
-		if($searchArray['platform_name']) {
+		if(array_key_exists('platform_name', $searchArray) && $searchArray['platform_name']) {
 			if($searchArray['platform_name'] == 'null') {
 				$searchString .= "AND platform IS NULL ";
 			} else {
 				$searchString .= "AND platform ~* {$this->db->escape($searchArray['platform_name'])} ";
 			}
 		}
-		if($searchArray['availabilityzone']) {
+		if(array_key_exists('availabilityzone', $searchArray) && $searchArray['availabilityzone']) {
 			if($searchArray['availabilityzone'] == 'null') {
 				$searchString .= "AND availability_zone IS NULL ";
 			} else {
 				$searchString .= "AND availability_zone ~* {$this->db->escape($searchArray['availabilityzone'])} ";
 			}
 		}
-		if($searchArray['mac']) {
+		if(array_key_exists('mac', $searchArray) && $searchArray['mac']) {
 			if($searchArray['mac'] == 'null') {
 				$searchString .= "AND mac IS NULL ";
 			} else {
 				$searchString .= "AND mac = {$this->db->escape($searchArray['mac'])} ";
 			}
 		}
-		if($searchArray['ipaddress']) {
+		if(array_key_exists('ipaddress', $searchArray) && $searchArray['ipaddress']) {
 			if($searchArray['availabilityzone'] == 'null') {
 				$searchString .= "AND address IS NULL ";
 			} else {
 				$searchString .= "AND address = {$this->db->escape($searchArray['ipaddress'])} ";
 			}
 		}
-		if($searchArray['config']) {
+		if(array_key_exists('config', $searchArray) && $searchArray['config']) {
 			if($searchArray['config'] == 'null') {
 				$searchString .= "AND config IS NULL ";
 			} else {
 				$searchString .= "AND config = {$this->db->escape($searchArray['config'])} ";
 			}
 		}
-		if($searchArray['subnet']) {
+		if(array_key_exists('subnet', $searchArray) && $searchArray['subnet']) {
 			$searchString .= "AND address << {$this->db->escape($searchArray['subnet'])} ";
 		}
-		if($searchArray['range']) {
+		if(array_key_exists('range', $searchArray) && $searchArray['range']) {
 			if($searchArray['range'] == 'null') {
 				$searchString .= "AND range IS NULL ";
 			} else {
 				$searchString .= "AND range ~* {$this->db->escape($searchArray['range'])} ";
 			}
 		}
-		if($searchArray['hostname']) {
+		if(array_key_exists('hostname', $searchArray) && $searchArray['hostname']) {
 			if($searchArray['hostname'] == 'null') {
 				$searchString .= "AND hostname IS NULL ";
 			} else {
 				$searchString .= "AND (hostname ~* {$this->db->escape($searchArray['hostname'])} OR cname_alias ~* {$this->db->escape($searchArray['hostname'])} OR srv_alias ~* {$this->db->escape($searchArray['hostname'])}) ";
 			}
 		}
-		if($searchArray['zone']) {
+		if(array_key_exists('zone', $searchArray) && $searchArray['zone']) {
 			if($searchArray['zone'] == 'null') {
 				$searchString .= "AND zone IS NULL ";
 			} else {
 				$searchString .= "AND zone ~* {$this->db->escape($searchArray['zone'])} ";
 			}
 		}
-		if($searchArray['owner']) {
+		if(array_key_exists('owner', $searchArray) && $searchArray['owner']) {
 			if($searchArray['owner'] == 'null') {
 				$searchString .= "AND system_owner IS NULL ";
 			} else {
 				$searchString .= "AND system_owner ~* {$this->db->escape($searchArray['owner'])} OR dns_owner = {$this->db->escape($searchArray['owner'])} ";
 			}
 		}
-		if($searchArray['lastmodifier']) {
+		if(array_key_exists('lastmodifier', $searchArray) && $searchArray['lastmodifier']) {
 			if($searchArray['lastmodifier'] == 'null') {
 				$searchString .= "AND system_last_modifier IS NULL OR dns_last_modifier IS NULL ";
 			} else {

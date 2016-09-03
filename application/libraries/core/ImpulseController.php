@@ -63,8 +63,8 @@ class ImpulseController extends CI_Controller {
 
 	private function _configureTable() {
 		$tmpl = array(
-			'table_open' => '<div class="table-responsive"><table id="datatable" class="table table-bordered table-striped tablesorter">',
-			'table_close' => '</table></div>'
+			'table_open' => '<div class="col-md-12"><div class="table-responsive"><table class="table table-bordered table-striped datatable">',
+			'table_close' => '</table></div></div>'
 		);
 
 		$this->table->set_template($tmpl);
@@ -328,8 +328,8 @@ class ImpulseController extends CI_Controller {
 	}
 
 	protected function _renderOptionView($opts) {
-		$html = "<div class=\"table-responsive\"><table class=\"table table-striped table-bordered imp-dnstable\">";
-		$html .= "<tr><th>Option</th><th>Value</th><th style=\"width: 220px\">Actions</th></tr>";
+		$html = "<div class=\"table-responsive\"><table class=\"table table-striped table-bordered datatable\">";
+		$html .= "<thead><tr><th>Option</th><th>Value</th><th style=\"width: 220px\">Actions</th></tr></thead><tbody>";
 		
 		foreach($opts as $opt) {
 			// Links
@@ -366,7 +366,7 @@ class ImpulseController extends CI_Controller {
 			$html .= "</td></tr>";
 		}
 
-		$html .= "</table></div>";
+		$html .= "</tbody></table></div>";
 
 		$view = $this->load->view('dhcp/dhcpoptions',array('table'=>$html),true);
 		return $view;

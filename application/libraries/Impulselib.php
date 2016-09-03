@@ -217,11 +217,12 @@ class Impulselib {
 		# Other
 		$this->tooltips['search']['Datacenter'] = "The physical location in which a system lives.";
 		$this->tooltips['search']['Availability Zone'] = "The logical partition of a datacenter in which an address on the system resides.";
+		$this->tooltips['search']['Location'] = "The physical location within the datacenter that your machine resides.";
 		$this->tooltips['search']['System Name'] = "The name or partial string of the computer.";
 		$this->tooltips['search']['Asset'] = "A company-specific inventory tracking string.";
 		$this->tooltips['search']['Group'] = "The group that owns a system.";
 		$this->tooltips['search']['Platform'] = "A hardware template that a system is built from.";
-		$this->tooltips['search']['MAC Address'] = "The MAC addres of an interface on a network.";
+		$this->tooltips['search']['MAC Address'] = "The MAC address of an interface on a network.";
 		$this->tooltips['search']['Subnet'] = "The IPv4 or IPv6 subnet that an IP address is contained within.";
 		$this->tooltips['search']['IP Address'] = "The IPv4 or IPv6 address assigned to an interface.";
 		$this->tooltips['search']['Config'] = "The method of IP address configuration.";

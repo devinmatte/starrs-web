@@ -26,10 +26,10 @@ class DnsController extends ImpulseController {
 		$priorityHead= "<th style=\"width: 3.6em\">Priority</th>";
 		$typeHead= "<th style=\"width: 3.6em\">Type</th>";
 		$table = "<div class=\"panel panel-default\" id=\"".$header."\"><div class=\"panel-heading\"><h3 class=\"panel-title\">".$header."</h3></div><div class=\"panel-body\">";
-		$table .= "<div class=\"table-responsive\"><table class=\"table table-striped table-bordered imp-dnstable\">";
+		$table .= "<div class=\"table-responsive\"><table class=\"table table-striped table-bordered datatable\">";
 		switch($header) {
 			case "Zone A/AAAA":
-				$table .= "<tr><th>Zone</th><th style=\"width: 9%\">TTL</th><th>Type</th><th>Address</th><th style=\"width: 162px;\">Actions</th></tr>";
+				$table .= "<thead><tr><th>Zone</th><th style=\"width: 9%\">TTL</th><th>Type</th><th>Address</th><th style=\"width: 225px;\">Actions</th></tr></thead><tbody>";
 				foreach($recs as $aRec) {
 					if(get_class($aRec) != "ZoneAddressRecord") { continue; }
 					$viewLink = "/dns/zonea/view/".rawurlencode($aRec->get_zone())."/".rawurlencode($aRec->get_address());
@@ -41,7 +41,7 @@ class DnsController extends ImpulseController {
 				}
 				break;
 			case "A/AAAA":
-				$table .= "<tr><th>Hostname</th><th>Zone</th>$ttlHead$typeHead<th style=\"width: 162px; max-width: 50px;\">Actions</th></tr>";
+				$table .= "<thead><tr><th>Hostname</th><th>Zone</th>$ttlHead$typeHead<th style=\"width: 225px; max-width: 50px;\">Actions</th></tr></thead><tbody>";
 				foreach($recs as $aRec) {
 					if(get_class($aRec) != "AddressRecord") { continue; }
 					$viewLink = "/dns/a/view/".rawurlencode($aRec->get_zone())."/".rawurlencode($aRec->get_address());
@@ -53,7 +53,7 @@ class DnsController extends ImpulseController {
 				}
 				break;
 			case "CNAME":
-				$table .= "<tr><th>Alias</th><th>Zone</th>$ttlHead<th>Owner</th><th style=\"width: 225px\">Actions</th></tr>";
+				$table .= "<thead><tr><th>Alias</th><th>Zone</th>$ttlHead<th>Owner</th><th style=\"width: 225px\">Actions</th></tr></thead><tbody>";
 				foreach($recs as $cRec) {
 					if(get_class($cRec) != "CnameRecord") { continue; }
 					$viewLink = "/dns/cname/view/".rawurlencode($cRec->get_zone())."/".rawurlencode($cRec->get_alias());
@@ -65,7 +65,7 @@ class DnsController extends ImpulseController {
 				}
 				break;
 			case "SRV":
-				$table .= "<tr><th style=\"width: 20%\">Alias</th><th>Zone</th>$priorityHead$weightHead$portHead<th style=\"width: 225px\">Actions</th></tr>";
+				$table .= "<thead><tr><th style=\"width: 20%\">Alias</th><th>Zone</th>$priorityHead$weightHead$portHead<th style=\"width: 225px\">Actions</th></tr></thead><tbody>";
 				foreach($recs as $sRec) {
 					if(get_class($sRec) != "SrvRecord") { continue; }
 					$viewLink = "/dns/srv/view/".rawurlencode($sRec->get_zone())."/".rawurlencode($sRec->get_alias())."/".$sRec->get_priority()."/".$sRec->get_weight()."/".$sRec->get_port();
@@ -77,7 +77,7 @@ class DnsController extends ImpulseController {
 				}
 				break;
 			case "Zone TXT":
-				$table .= "<tr><th style=\"width: 16%\">Hostname</th><th style=\"width: 15%\">Zone</th><th>Text</th><th style=\"width: 225px\">Actions</th></tr>";
+				$table .= "<thead><tr><th style=\"width: 16%\">Hostname</th><th style=\"width: 15%\">Zone</th><th>Text</th><th style=\"width: 225px\">Actions</th></tr></thead><tbody>";
 				foreach($recs as $tRec) {
 					if(get_class($tRec) != "ZoneTextRecord") { continue; }
 					$viewLink = "/dns/zonetxt/view/".rawurlencode($tRec->get_zone())."/".md5($tRec->get_text());
@@ -89,7 +89,7 @@ class DnsController extends ImpulseController {
 				}
 				break;
 			case "TXT":
-				$table .= "<tr><th>Hostname</th><th>Zone</th><th>Text</th><th style=\"width: 225px\">Actions</th></tr>";
+				$table .= "<thead><tr><th>Hostname</th><th>Zone</th><th>Text</th><th style=\"width: 225px\">Actions</th></tr></thead><tbody>";
 				foreach($recs as $tRec) {
 					if(get_class($tRec) != "TextRecord") { continue; }
 					$viewLink = "/dns/txt/view/".rawurlencode($tRec->get_zone())."/".rawurlencode($tRec->get_hostname())."/".md5($tRec->get_text());
@@ -101,7 +101,7 @@ class DnsController extends ImpulseController {
 				}
 				break;
 			case "Zone NS":
-				$table .= "<tr><th>Nameserver</th><th>Address</th>$ttlHead<th style=\"width: 225px\">Actions</th></tr>";
+				$table .= "<thead><tr><th>Nameserver</th><th>Address</th>$ttlHead<th style=\"width: 225px\">Actions</th></tr></thead><tbody>";
 				foreach($recs as $nRec) {
 					if(get_class($nRec) != "NsRecord") { continue; }
 					$viewLink = "/dns/ns/view/".rawurlencode($nRec->get_zone())."/".rawurlencode($nRec->get_nameserver());
@@ -113,7 +113,7 @@ class DnsController extends ImpulseController {
 				}
 				break;
 			case "NS":
-				$table .= "<tr><th>Nameserver</th><th>Zone</th>$ttlHead<th style=\"width: 225px\">Actions</th></tr>";
+				$table .= "<thead><tr><th>Nameserver</th><th>Zone</th>$ttlHead<th style=\"width: 225px\">Actions</th></tr></thead><tbody>";
 				foreach($recs as $nRec) {
 					if(get_class($nRec) != "NsRecord") { continue; }
 					$viewLink = "/dns/ns/view/".rawurlencode($nRec->get_zone())."/".rawurlencode($nRec->get_nameserver());
@@ -125,7 +125,7 @@ class DnsController extends ImpulseController {
 				}
 				break;
 			case "MX":
-				$table .= "<tr><th>Hostname</th><th>Zone</th><th style=\"width: 5.6em\">Preference</th><th style=\"width: 9%\">TTL</th><th style=\"width: 225px\">Actions</th></tr>";
+				$table .= "<thead><tr><th>Hostname</th><th>Zone</th><th style=\"width: 5.6em\">Preference</th><th style=\"width: 9%\">TTL</th><th style=\"width: 225px\">Actions</th></tr></thead><tbody>";
 				foreach($recs as $mRec) {
 					if(get_class($mRec) != "MxRecord") { continue; }
 					$viewLink = "/dns/mx/view/".rawurlencode($mRec->get_zone())."/".rawurlencode($mRec->get_preference());
@@ -138,7 +138,7 @@ class DnsController extends ImpulseController {
 				break;
 		}
 
-		$table .= "</table></div></div></div>";
+		$table .= "</tbody></table></div></div></div>";
 
 		if($counter == 0) {
 			return;

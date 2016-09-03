@@ -1,7 +1,7 @@
 <form method="POST" id="create-form">
 	<div class="form-group has-feedback">
 		<label class="control-label">Alias</label>
-		<input type="text" name="alias" class="form-control" value="<?=htmlentities($sRec->get_alias())?>" />&nbsp;<span id="inuse" class="label label-important imp-hide">In use!</span>
+		<input type="text" name="alias" class="form-control" value="<?=htmlentities($sRec->get_alias())?>" />&nbsp;<span id="inuse" class="label label-important starrs-hide">In use!</span>
 		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 	</div>
 	<div class="form-group">

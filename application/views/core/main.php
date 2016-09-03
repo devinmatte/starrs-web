@@ -10,6 +10,8 @@
 		<link href="/bower_components/csh-material-bootstrap/dist/css/csh-material-bootstrap.css" rel="stylesheet">
 		<link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/bower_components/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
+		<link href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+		<link href="/bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
 		<link href="/assets/css/starrs.css" rel="stylesheet">
 		
 		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
@@ -63,8 +65,12 @@
 
 		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="/bower_components/tablesorter/jquery.tablesorter.min.js"></script>
 		<script src="/bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
+		<script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+		<script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+		<script src="/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+		<script src="/bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+		<script src="/bower_components/js-cookie/src/js.cookie.js"></script>
 		<?=$scripts;?>
 	</body>
 </html>
