@@ -5,7 +5,7 @@
 		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 	</div>
 	<?php if(isset($address)) {?>
-	<input type="hidden" name="address" value="<?=$address;?>" readonly disabled />
+	<input type="hidden" name="address" value="<?=$address;?>" readonly />
 	<?} else {?>
 	<div class="form-group has-feedback">
 		<label class="control-label">Address</label>

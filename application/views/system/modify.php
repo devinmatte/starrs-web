@@ -86,11 +86,7 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label">Owner</label>
-					<input type="text" class="form-control" name="owner" <?=($isAdmin)?"":"readonly disabled";?> value="<?=htmlentities($sys->get_owner());?>" />
-                    <?if($user->isAdmin()) {?>
-                    <input type="hidden" disabled=true name="username" value="<?=$user->get_user_name();?>" />
-					<a href="#" class="btn" id="me-button">Me</a>
-                    <?}?>
+					<input type="text" class="form-control" name="owner" <?=($isAdmin)?"":"readonly";?> value="<?=htmlentities($sys->get_owner());?>" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">Group</label>

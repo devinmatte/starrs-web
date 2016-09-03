@@ -26,7 +26,7 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label">Owner</label>
-					<input type="text" class="form-control" name="owner" <?=($isAdmin)?"":"readonly disabled";?> value="<?=$key->get_owner();?>" />
+					<input type="text" class="form-control" name="owner" <?=($isAdmin)?"":"readonly";?> value="<?=$key->get_owner();?>" />
 				</div>
 				<div class="form-actions pull-right">
 					<a href="/dns/key/view/<?=rawurlencode($key->get_keyname());?>" class="btn btn-default">Cancel</a>

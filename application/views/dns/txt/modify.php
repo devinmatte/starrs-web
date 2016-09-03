@@ -57,6 +57,6 @@
 	</div>
 	<div class="form-group">
 		<label class="control-label">Owner</label>
-		<input type="text" class="form-control" name="owner" value="<?=htmlentities($tRec->get_owner());?>" <?=($user->isAdmin())?"":"readonly disabled"?> />
+		<input type="text" class="form-control" name="owner" value="<?=htmlentities($tRec->get_owner());?>" <?=($user->isAdmin())?"":"readonly"?> />
 	</div>
 </form>

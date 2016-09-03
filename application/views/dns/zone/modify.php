@@ -51,7 +51,7 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label">Owner</label>
-					<input type="text" class="form-control" name="owner" <?=($isAdmin)?"":"readonly disabled";?> value="<?=$z->get_owner();?>" />
+					<input type="text" class="form-control" name="owner" <?=($isAdmin)?"":"readonly";?> value="<?=$z->get_owner();?>" />
 				</div>
 				<div class="form-actions pull-right">
 					<a href="/dns/zone/view/<?=rawurlencode($z->get_zone());?>" class="btn btn-default">Cancel</a>

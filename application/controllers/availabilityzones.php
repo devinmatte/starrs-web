@@ -36,6 +36,7 @@ class Availabilityzones extends ImpulseController {
 
 		// Content
 		$content = $this->load->view('availabilityzone/information',null,true);
+		$this->_actionsBlank();
 
 		// Render
 		$this->_render($content);

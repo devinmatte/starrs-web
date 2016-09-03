@@ -7,7 +7,7 @@
 			<form method="POST" id="create-form">
 				<div class="form-group">
 					<label class="control-label">Datacenter Name</label>
-					<input type="text" class="form-control" name="name" value="<?=$dc->get_datacenter();?>" readonly disabled />
+					<input type="text" class="form-control" name="name" value="<?=$dc->get_datacenter();?>" readonly />
 				</div>
 				<div class="form-group has-feedback">
 					<label class="control-label">Zone</label>

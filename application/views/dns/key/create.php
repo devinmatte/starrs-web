@@ -26,7 +26,7 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label">Owner</label>
-					<input type="text" class="form-control" name="owner" <?=($user->isAdmin())?"":"readonly disabled";?> value="<?=htmlentities($user->get_user_name());?>" />
+					<input type="text" class="form-control" name="owner" <?=($user->isAdmin())?"":"readonly";?> value="<?=htmlentities($user->get_user_name());?>" />
 				</div>
 				<div class="form-actions pull-right">
 					<a href="/dns/keys" class="btn btn-default">Cancel</a>

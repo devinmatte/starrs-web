@@ -20,13 +20,13 @@
 	</div>
 	<div class="form-group">
 		<label class="control-label">Create Reverse?</label>
-		<select name="reverse" class="form-control" <?($user->isAdmin())?"":"readonly disabled"?>>
+		<select name="reverse" class="form-control" <?($user->isAdmin())?"":"readonly"?>>
 			<option value='t'>Yes</option>
 			<option value='n'>No</option>
 		</select>
 	</div>
 	<div class="form-group">
 		<label class="control-label">Owner</label>
-		<input type="text" class="form-control" name="owner" value="<?=htmlentities($user->get_user_name());?>" <?=($user->isAdmin())?"":"readonly disabled"?> />
+		<input type="text" class="form-control" name="owner" value="<?=htmlentities($user->get_user_name());?>" <?=($user->isAdmin())?"":"readonly"?> />
 	</div>
 </form>

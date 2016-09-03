@@ -69,7 +69,7 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label">Renew Date</label>
-					<input type="text" class="form-control" name="renew_date" value="<?=$date;?>" <?($user->isAdmin())?"":"readonly disabled";?> />
+					<input type="text" class="form-control" name="renew_date" value="<?=$date;?>" <?($user->isAdmin())?"":"readonly";?> />
 				</div>
 				<div class="form-group">
 					<label class="control-label">Comment</label>

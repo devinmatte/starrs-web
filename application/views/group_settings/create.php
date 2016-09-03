@@ -7,7 +7,7 @@
 			<form method="POST" id="create-form">
 				<div class="form-group has-feedback">
 					<label class="control-label">Group Name</label>
-					<input type="text" class="form-control" name="group" value="<?=htmlentities($g->get_group())?>" readonly disabled />
+					<input type="text" class="form-control" name="group" value="<?=htmlentities($g->get_group())?>" readonly />
 					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
 				<div class="form-group has-feedback">

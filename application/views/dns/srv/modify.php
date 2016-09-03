@@ -50,6 +50,6 @@
 	</div>
 	<div class="form-group">
 		<label class="control-label">Owner</label>
-		<input type="text" name="owner" value="<?=htmlentities($sRec->get_owner());?>" <?=($user->isAdmin())?"":"readonly disabled"?> />
+		<input type="text" name="owner" value="<?=htmlentities($sRec->get_owner());?>" <?=($user->isAdmin())?"":"readonly"?> />
 	</div>
 </form>

@@ -234,17 +234,17 @@ $('label').each(function() {
 	});
 });
 
-$('dt').tooltip({
+$('dt').tooltip('fixTitle', {
 	placement: 'right',
 	container : 'body'
 });
 
-$('th').tooltip({
+$('th').tooltip('fixTitle', {
 	placement: 'top',
 	container : 'body'
 });
 
-$('.control-label').tooltip({
+$('.control-label').tooltip('fixTitle', {
 	placement: 'right',
 	container : 'body'
 });

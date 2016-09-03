@@ -36,6 +36,6 @@
 	</div>
 	<div class="form-group">
 		<label class="control-label">Owner</label>
-		<input type="text" name="owner" value="<?=htmlentities($user->get_user_name());?>" <?=($user->isAdmin())?"":"readonly disabled"?> />
+		<input type="text" name="owner" value="<?=htmlentities($user->get_user_name());?>" <?=($user->isAdmin())?"":"readonly"?> />
 	</div>
 </form>

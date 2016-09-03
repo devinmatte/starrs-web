@@ -33,6 +33,7 @@ class Records extends DnsController {
 		catch (ObjectNotFoundException $e) {}
 		catch (Exception $e) { $this->_error($e); return; }
 		$content = $this->load->view('dns/recordinfo',null,true);
+		$this->_actionsBlank();
 		$this->_render($content);
 	}
 

@@ -92,7 +92,7 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label">Owner</label>
-					<input type="text" class="form-control" name="owner" value="<?=$snet->get_owner();?>" <?=(!$isAdmin)?"readonly disabled":'';?> />
+					<input type="text" class="form-control" name="owner" value="<?=$snet->get_owner();?>" <?=(!$isAdmin)?"readonly":'';?> />
 				</div>
 				<div class="form-actions pull-right">
 					<a href="/network/subnet/view/<?=rawurlencode($snet->get_subnet())?>" class="btn btn-default">Cancel</a>
