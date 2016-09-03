@@ -294,20 +294,6 @@ class ImpulseController extends CI_Controller {
 		die($content);
 	}
 
-	protected function _addContentToList($content, $cols) {
-		$this->contentList[$cols][] = $content;
-	}
-
-	protected function _renderContentList($cols) {
-		$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
-		foreach($this->contentList[$cols] as $view) {
-			$content .= $view;
-		}
-
-		$content .= "</div>";
-		return $content;
-	}
-
 	protected function _addScript($path) {
 		$this->js[] = $path;
 	}

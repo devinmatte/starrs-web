@@ -135,11 +135,13 @@ class Cam extends ImpulseController {
 
 		try {
 			$ports = $this->api->network->get->interface_ports($mac);
+			$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
+			
 			foreach($ports as $p) {
-				$this->_addContentToList($this->load->view('cam/locate',array('p'=>$p),true),2);
+				$content .= $this->load->view('cam/locate', array('p'=>$p), true);
 			}
-
-			$content = $this->_renderContentList(2);
+			
+			$content .= "</div>";
 		}
 		catch(ObjectNotFoundException $e) { $content = $this->_renderException(new ObjectNotFoundException("No CAM table entries were found!")); }
 		catch(Exception $e) { $content = $this->_renderException($e); }

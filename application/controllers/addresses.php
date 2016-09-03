@@ -32,11 +32,13 @@ class Addresses extends ImpulseController {
 		// Content
 		try {
 			$intAddrs = $this->api->systems->get->interfaceaddressesByMac($int->get_mac());
+			$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
+			
 			foreach($intAddrs as $intAddr) {
-				$this->_addContentToList($this->load->view('interfaceaddress/overview',array("intAddr"=>$intAddr),true),2);
+				$content .= $this->load->view('interfaceaddress/overview', array("intAddr"=>$intAddr), true);
 			}
-
-			$content = $this->_renderContentList(2);
+			
+			$content .= "</div>";
 		}
 		catch (ObjectNotFoundException $e) { $content = $this->load->view('exceptions/objectnotfound',array('span'=>7),true); }
 		catch (Exception $e) { $this->_exit($e); return; }

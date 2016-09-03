@@ -32,11 +32,13 @@ class Interfaces extends ImpulseController {
 
 		try {
 			$ints = $this->api->systems->get->interfacesBySystem($sys->get_system_name());
+			$content = "<div class=\"col-md-6 col-md-pull-3 col-sm-12\">";
+			
 			foreach($ints as $int) {
-				$this->_addContentToList($this->load->view('interface/overview',array("int"=>$int),true),2);
+				$content .= $this->load->view('interface/overview', array("int"=>$int), true);
 			}
-
-			$content = $this->_renderContentList(2);
+			
+			$content .= "</div>";
 		}
 		catch (ObjectNotFoundException $e) { $content = $this->load->view('exceptions/objectnotfound',null,true); }
 		catch (Exception $e) { $this->_exit($e); return; }
