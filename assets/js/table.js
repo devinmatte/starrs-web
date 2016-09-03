@@ -1,5 +1,5 @@
 // Table Data - Detail Button
-$('td .btn-info').click(function() {
+$('table').on('click', '.btn-info', function() {
 	var url = $(this).parent().attr('href');
 	$.get(url, function(data) {
 		$('#modal-info .modal-header').html("<h4 class=\"modal-title\">Detail</h4>");
@@ -10,7 +10,7 @@ $('td .btn-info').click(function() {
 });
 
 // Table Data - Modify Button
-$('td .btn-warning').click(function() {
+$('table').on('click', '.btn-warning', function() {
 	var url = $(this).parent().attr('href');
 	$.get(url, function(data) {
 		$('#modal-modify .modal-header').html("<h4 class=\"modal-title\">Modify</h4>");
@@ -22,7 +22,7 @@ $('td .btn-warning').click(function() {
 });
 
 // Table Data - Remove Button
-$('td .btn-danger').click(function() {
+$('table').on('click', '.btn-danger', function() {
 	var url = $(this).parent().attr('href');
 	$('#modal-confirm-btn').attr('href',url);
 	$('#modal-confirm').modal('show');

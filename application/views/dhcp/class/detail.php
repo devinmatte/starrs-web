@@ -1,6 +1,8 @@
 <div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title"><?=htmlentities($c->get_class());?></h3>
+	</div>
 	<div class="panel-body">
-		<h4><?=htmlentities($c->get_class());?></h4>
 		<dl class="dl-horizontal">
 			<dt>Date Created</dt>
 			<dd><?=htmlentities($c->get_date_created());?></dd>
