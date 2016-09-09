@@ -28,19 +28,35 @@ body {
 }
 
 .starrs-switchport {
-    background-color: green;
+    background-color: #4caf50;
     text-align: center;
     color: white;
     border-radius: 4px;
-    padding-top: 5px;
+    padding: 5px;
+}
+
+.starrs-switchport-container {
+    padding: 0 30px 10px;
+}
+
+.starrs-switchport-container:last-of-type {
+    padding-bottom: 0;
+}
+
+.starrs-switchport-column {
+    padding: 0;
 }
 
 .starrs-switchport-up {
-    background-color: #468847;
+    background-color: #4caf50;
 }
 
 .starrs-switchport-down {
-    background-color: #333;
+    background-color: #333333;
+}
+
+.starrs-switchport-disabled {
+    background-color: #e51c23;
 }
 
 .form-actions {

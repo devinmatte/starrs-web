@@ -55,14 +55,7 @@ class Switchports extends ImpulseController {
 		$this->_addAction("CAM Table","/network/cam/view/".rawurlencode($sys->get_system_name()),"primary");
 
 		// Sidebar
-		$this->_addSidebarHeader("SYSTEMS");
-		foreach($systems as $nsys) {
-			if($nsys->get_system_name() == $sys->get_system_name()) {
-				$this->_addSidebarItem($nsys->get_system_name(),"/network/switchports/view/".rawurlencode($nsys->get_system_name()),"hdd",1);
-			} else {
-				$this->_addSidebarItem($nsys->get_system_name(),"/network/switchports/view/".rawurlencode($nsys->get_system_name()),"hdd");
-			}
-		}
+		$this->_sidebarBlank();
 
 		try {
 			$ifs = $this->api->network->get->switchports($sys->get_system_name());
@@ -72,11 +65,11 @@ class Switchports extends ImpulseController {
 			$viewData['sys'] = $sys;
 			if($viewData['blades']) {
 				// Content
-				$content = $this->load->view('switchport/overview',$viewData,true);
+				$content = $this->load->view('switchport/overview_blade',$viewData,true);
 			} else {
 				$viewData['ifs'] = $ifs;
 				$viewData['sys'] = $sys;
-				$content = $this->load->view('switchport/oldoverview',$viewData,true);
+				$content = $this->load->view('switchport/overview',$viewData,true);
 			}
 		}
 		catch(ObjectNotFoundException $e) {

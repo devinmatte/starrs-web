@@ -1,8 +1,9 @@
 <div class="col-md-6 col-md-pull-3 col-sm-12">
 	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title"><a href="/system/view/<?=rawurlencode($sys->get_system_name());?>"><?=htmlentities($sys->get_system_name());?></a><span class="pull-right"><?=($cam)?$cam[0]->get_date_created():"No CAM data";?></span></h3>
+		</div>
 		<div class="panel-body">
-			<h2><a href="/system/view/<?=rawurlencode($sys->get_system_name());?>"><?=htmlentities($sys->get_system_name());?></a>
-			<small><?=($cam)?$cam[0]->get_date_created():"No CAM data";?></small></h2>
 			<div class="table-responsive">
 				<table class="table table-bordered table-striped datatable" id="camtable">
 					<thead>

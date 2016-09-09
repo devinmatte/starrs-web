@@ -22,7 +22,7 @@
 					</select>
 					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
-				<div class="form-group has-feedback">
+				<div class="form-group">
 					<label class="control-label">Operating System</label>
 					<select name="osName" class="form-control">
 						<option selected></option>
@@ -32,7 +32,6 @@
 						}
 						?>
 					</select>
-					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
 				<div class="form-group">
 					<label class="control-label">Comment</label>

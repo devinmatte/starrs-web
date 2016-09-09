@@ -51,8 +51,8 @@ class ImpulseController extends CI_Controller {
 
 		// Switchport
 		$this->ifState['up'] = "<span class=\"label label-success\">Up</span>";
-		$this->ifState['down'] = "<span class=\"label label-inverse\">Down</span>";
-		$this->ifState['disabled'] = "<span class=\"label label-important\">Disabled</span>";
+		$this->ifState['down'] = "<span class=\"label label-default\">Down</span>";
+		$this->ifState['disabled'] = "<span class=\"label label-danger\">Disabled</span>";
 
 		// Forminfo
 		$this->forminfo = $this->load->view('core/forminfo',null,true);

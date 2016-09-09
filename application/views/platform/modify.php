@@ -36,7 +36,7 @@
 					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<label class="control-label">Memory (GB)</label>
+					<label class="control-label">Memory (MB)</label>
 					<input type="text" class="form-control" name="memory" value="<?=$p->get_memory();?>" />
 					<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 				</div>

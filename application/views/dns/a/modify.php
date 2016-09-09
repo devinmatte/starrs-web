@@ -2,7 +2,7 @@
 	<fieldset>
 		<div class="form-group">
 			<label class="control-label">Hostname: </label>
-			<input type="text" name="hostname" value="<?=htmlentities($aRec->get_hostname())?>" />&nbsp;<span id="inuse" class="label label-important starrs-hide">In use!</span>
+			<input type="text" name="hostname" value="<?=htmlentities($aRec->get_hostname())?>" />&nbsp;<span id="inuse" class="label label-danger starrs-hide">In use!</span>
 		</div>
 		<div class="form-group">
 			<label class="control-label">Zone: </label>

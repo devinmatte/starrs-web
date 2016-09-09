@@ -58,19 +58,19 @@ class Blade {
 
 	public function renderRow($rowNum) {
 		$ifs = $this->rowInts[$rowNum];
-		$html = "<div class=\"row\">";
+		$html = "<div class=\"row starrs-switchport-container\">";
 		for($c=0; $c<$this->portGroups; $c++) {
 			$spanCount = floor(12 / $this->portGroups);
-			$html .= "<div class=\"span$spanCount\">";
+			$html .= "<div class=\"col-xs-$spanCount starrs-switchport-column\">";
 			for($i=0; $i<$this->portsPerGroup; $i++) {
 				if(!$ifs) { continue; }
 				$currIf = array_shift($ifs);
 				$spanCount = floor(12 / $this->portsPerGroup);
-				$html .= "<div id=\"{$currIf->get_index()}\" class=\"span$spanCount switchport-div starrs-switchport starrs-switchport-".$currIf->get_css_class()."\"><a id=\"{$currIf->get_index()}-a\" class=\"switchport-link\" href=\"/network/switchport/view/".rawurlencode($currIf->get_system_name())."/".rawurlencode($currIf->get_index())."\"></a>{$currIf->get_number()}</div>";
+				$html .= "<div id=\"{$currIf->get_index()}\" class=\"col-xs-$spanCount switchport-div starrs-switchport starrs-switchport-".$currIf->get_css_class()."\"><a id=\"{$currIf->get_index()}-a\" class=\"switchport-link\" href=\"/network/switchport/view/".rawurlencode($currIf->get_system_name())."/".rawurlencode($currIf->get_index())."\"></a>{$currIf->get_number()}</div>";
 			}
 			$html .= "</div>";
 		}
-		$html .= "</div><br />";
+		$html .= "</div>";
 		return $html;
 	}
     

@@ -2,7 +2,7 @@
 	<input type="hidden" name="address" value="<?=$address;?>" />
 	<div class="form-group has-feedback">
 		<label class="control-label">Alias</label>
-		<input type="text" name="alias" class="form-control" value="<?=htmlentities($cRec->get_alias())?>" />&nbsp;<span id="inuse" class="label label-important starrs-hide">In use!</span>
+		<input type="text" name="alias" class="form-control" value="<?=htmlentities($cRec->get_alias())?>" />&nbsp;<span id="inuse" class="label label-danger starrs-hide">In use!</span>
 		<span class="glyphicon glyphicon-asterisk form-control-feedback required"></span>
 	</div>
 	<div class="form-group">
@@ -40,6 +40,6 @@
 	</div>
 	<div class="form-group">
 		<label class="control-label">Owner</label>
-		<input type="text" name="owner" value="<?=htmlentities($cRec->get_owner());?>" <?=($user->isAdmin())?"":"readonly"?> />
+		<input type="text" name="owner" value="<?=htmlentities($cRec->get_owner());?>" <?=($user->isAdmin())?"":"readonly"?> class="form-control" />
 	</div>
 </form>
