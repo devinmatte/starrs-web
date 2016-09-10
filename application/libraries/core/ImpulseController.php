@@ -319,7 +319,7 @@ class ImpulseController extends CI_Controller {
 			return null;
 		}
 		else {
-			return $this->input->post($var);
+			return trim($this->input->post($var));
 		}
 	}
 
