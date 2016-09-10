@@ -95,6 +95,8 @@ $(document).ready(function() {
 		// Protect against re-initialization
 		if (!$.fn.dataTable.isDataTable(this)) {
 			$(this).DataTable({
+				info: false,
+				pagingType: "numbers",
 				responsive: true
 			});
 		}
