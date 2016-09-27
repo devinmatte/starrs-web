@@ -6,7 +6,7 @@
 		<div class="panel-body">
 			<form method="POST" id="modify-form">
 				<div class="form-group has-feedback">
-					<label class="control-label">Interface Name</label>
+					<label class="control-label">System Name</label>
 					<select name="systemName" class="form-control">
 						<?php
 						foreach($systems as $sys) {
