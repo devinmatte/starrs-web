@@ -30,7 +30,7 @@ $db['default']['password'] = 'adminpass';
 $db['default']['database'] = 'starrs';
 ````
 
-4. Copy `application/config/impulse.php.example` to `application/config/impulse.php`. For this web environment, the defaults in this file are fine. In this file you can change which environment variable to get the current user from.
+4. Copy `application/config/impulse.env.php` to `application/config/impulse.php`. For this web environment, the defaults in this file are fine. In this file you can change which environment variable to get the current user from.
 
 5. Apache needs to be given some special instructions to serve up the application correctly. Create a file at `/etc/httpd/conf.d/starrs.conf` with the following contents:
 

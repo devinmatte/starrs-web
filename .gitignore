@@ -1,11 +1,4 @@
 ###############
-# Application
-###############
-
-application/config/database.php
-application/config/impulse.php
-
-###############
 # Linux
 ###############
 

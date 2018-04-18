@@ -45,24 +45,28 @@
 | the active record class
 */
 
+$get_env = function (&$var, $default = null) {
+    return !empty($var) ? $var : $default;
+};
+
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'username';
-$db['default']['password'] = 'password';
-$db['default']['database'] = 'databasename';
-$db['default']['dbdriver'] = 'postgre';
-$db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = FALSE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
+$db['default']['hostname'] = $get_env(getenv("db_hostname"), 'localhost');
+$db['default']['username'] = $get_env(getenv("db_username"), 'username');
+$db['default']['password'] = $get_env(getenv("db_password"), 'password');
+$db['default']['database'] = $get_env(getenv("db_database"), 'databasename');
+$db['default']['dbdriver'] = $get_env(getenv("dbdriver"), 'postgre');
+$db['default']['dbprefix'] = $get_env(getenv("dbprefix"), '');
+$db['default']['pconnect'] = $get_env(getenv("pconnect"), TRUE);
+$db['default']['db_debug'] = $get_env(getenv("db_debug"), FALSE);
+$db['default']['cache_on'] = $get_env(getenv("cache_on"), FALSE);
+$db['default']['cachedir'] = $get_env(getenv("cachedir"), '');
+$db['default']['char_set'] = $get_env(getenv("char_set"), 'utf8');
+$db['default']['dbcollat'] = $get_env(getenv("dbcollat"), 'utf8_general_ci');
+$db['default']['swap_pre'] = $get_env(getenv("swap_pre"), '');
+$db['default']['autoinit'] = $get_env(getenv("autoinit"), TRUE);
+$db['default']['stricton'] = $get_env(getenv("stricton"), FALSE);
 
 
 /* End of file database.php */
